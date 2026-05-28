@@ -1,0 +1,201 @@
+query_id,query,method,context_relevance,answer_relevance,faithfulness,bert_score_f1
+Q1,How should we handle spear-phishing attempts in a mid-sized ...,dense,0.7004,0.6016,0.7778,0.8283
+Q2,What email authentication protocols should we implement to p...,dense,0.6764,0.7148,1.0,0.8783
+Q3,What are the best practices for security awareness training ...,dense,0.6952,0.8162,0.7647,0.8645
+Q4,How can we protect our organisation against Business Email C...,dense,0.6355,0.6677,0.6667,0.859
+Q5,What technical controls does MITRE ATT&CK recommend for phis...,dense,0.6971,0.5438,0.75,0.8684
+Q6,How should our incident response team handle a confirmed phi...,dense,0.7306,0.7474,0.6667,0.906
+Q7,What phishing defences are appropriate for a small business ...,dense,0.653,0.6326,0.625,0.8869
+Q8,How can we defend against QR code phishing and other emergin...,dense,0.7581,0.7775,0.6,0.8741
+Q9,What role does multi-factor authentication play in phishing ...,dense,0.6577,0.7016,0.6667,0.881
+Q10,How do we protect against supply chain phishing attacks from...,dense,0.7233,0.5591,0.8182,0.8531
+Q11,How do we correctly configure SPF records for our domain?...,dense,0.5733,0.6437,1.0,0.8465
+Q12,What is the recommended DMARC deployment strategy?...,dense,0.5484,0.5271,0.7,0.8799
+Q13,How does DKIM signing work and what key length should we use...,dense,0.7406,0.6486,0.6667,0.9143
+Q14,What email gateway policies should we configure to block phi...,dense,0.7232,0.7566,0.5556,0.8974
+Q15,How can we detect emails from first-time external senders?...,dense,0.5684,0.5923,0.8889,0.8816
+Q16,What is the benefit of adding external email banners for use...,dense,0.45,0.4872,1.0,0.8832
+Q17,How should we configure URL rewriting and link scanning in o...,dense,0.6421,0.6768,0.7,0.8803
+Q18,What sandboxing technologies should we use for email attachm...,dense,0.5978,0.7544,0.875,0.872
+Q19,How do we prevent outbound data exfiltration through email a...,dense,0.6755,0.7847,0.7,0.866
+Q20,What anti-spoofing controls should we implement at the netwo...,dense,0.5438,0.7474,0.7,0.8775
+Q21,What is clone phishing and how do we detect it?...,dense,0.7039,0.749,1.0,0.8584
+Q22,How do whaling attacks differ from standard spear-phishing?...,dense,0.6491,0.5732,0.8571,0.8647
+Q23,What is angler phishing and how does it exploit social media...,dense,0.6798,0.6611,0.5833,0.8513
+Q24,How do pharming attacks work and what DNS protections should...,dense,0.5737,0.6653,0.7857,0.8761
+Q25,What is consent phishing and how does it abuse OAuth flows?...,dense,0.6899,0.6963,0.9,0.8619
+Q26,How does callback phishing bypass email security controls?...,dense,0.6729,0.7286,1.0,0.8713
+Q27,What is lateral phishing and how do we detect compromised in...,dense,0.7267,0.7522,0.9,0.8797
+Q28,How do watering hole attacks relate to phishing and how do w...,dense,0.6395,0.6947,0.8889,0.8515
+Q29,What is search engine phishing and how do we protect users f...,dense,0.6383,0.6672,1.0,0.8489
+Q30,How do evil twin Wi-Fi attacks enable phishing and what cont...,dense,0.7174,0.6256,0.6667,0.8734
+Q31,How do deepfake phishing attacks work and what verification ...,dense,0.6792,0.6909,0.9,0.8707
+Q32,What are browser-in-the-browser attacks and how do we train ...,dense,0.5957,0.589,0.6364,0.86
+Q33,How do adversary-in-the-middle phishing kits defeat standard...,dense,0.6892,0.7422,0.8889,0.851
+Q34,What is polymorphic phishing and how do we detect it when ea...,dense,0.7386,0.7479,0.8333,0.8638
+Q35,How do attackers use legitimate cloud services to host phish...,dense,0.6664,0.6258,1.0,0.8689
+Q36,What are adversary-in-the-middle phishing kits like Evilginx...,dense,0.685,0.5308,0.875,0.8674
+Q37,How do attackers use homoglyph domains to evade detection?...,dense,0.5225,0.6849,0.9091,0.8174
+Q38,What is MFA fatigue and how did it lead to the Uber breach?...,dense,0.5954,0.6678,0.8889,0.8339
+Q39,How do AI-generated phishing emails change the threat landsc...,dense,0.7159,0.7532,0.875,0.8656
+Q40,What techniques do attackers use to bypass URL reputation ch...,dense,0.5567,0.6947,1.0,0.8433
+Q41,What is smishing and how should we protect our employees fro...,dense,0.777,0.7507,0.8571,0.8458
+Q42,How do vishing attacks use caller ID spoofing and AI voice c...,dense,0.7259,0.7169,1.0,0.8593
+Q43,What mobile device management policies help prevent mobile p...,dense,0.6871,0.7048,0.75,0.866
+Q44,How should we extend our phishing defences beyond email to c...,dense,0.6685,0.7816,0.7778,0.88
+Q45,What unique challenges does mobile phishing present compared...,dense,0.6509,0.5655,0.8571,0.864
+Q46,What should the SOC analyst do first when a phishing email i...,dense,0.7251,0.8169,1.0,0.9006
+Q47,What containment actions should IT administrators take durin...,dense,0.7098,0.5364,0.9,0.8657
+Q48,How should the communications team manage internal notificat...,dense,0.6996,0.6954,0.6667,0.9028
+Q49,What forensic analysis should be performed on phishing email...,dense,0.7363,0.6773,0.8571,0.9048
+Q50,What is the CISO's role during a major phishing incident?...,dense,0.7437,0.7819,1.0,0.8718
+Q51,How should the legal team assess regulatory obligations afte...,dense,0.7064,0.771,0.9,0.8829
+Q52,What role does HR play in phishing incident response?...,dense,0.8103,0.7253,0.7273,0.8977
+Q53,How should vendor relationships be managed during a supply c...,dense,0.7386,0.6848,1.0,0.8715
+Q54,What should be included in a phishing response playbook?...,dense,0.6799,0.7433,0.875,0.8895
+Q55,How do we conduct a post-incident review after a phishing at...,dense,0.6542,0.5676,0.8,0.871
+Q56,What cognitive biases make humans susceptible to phishing at...,dense,0.6453,0.5096,0.5385,0.8469
+Q57,How do we build a positive phishing reporting culture withou...,dense,0.715,0.742,0.5455,0.8827
+Q58,What metrics should we use to measure our phishing awareness...,dense,0.7672,0.7564,0.6364,0.8736
+Q59,How should security awareness training be tailored for diffe...,dense,0.6154,0.6387,1.0,0.8827
+Q60,What is phishing fatigue and how do we manage simulation fre...,dense,0.7479,0.7307,0.6667,0.8793
+Q61,How can security champion programs improve phishing resilien...,dense,0.6825,0.7631,0.6667,0.8826
+Q62,What gamification techniques work best for phishing awarenes...,dense,0.7142,0.6701,0.75,0.8651
+Q63,What is the human firewall concept and how do we build it ef...,dense,0.7056,0.3625,0.8333,0.8511
+Q64,How often should we run phishing simulations and what diffic...,dense,0.7273,0.752,0.6364,0.8764
+Q65,How do we handle employees who repeatedly fall for simulated...,dense,0.733,0.7591,0.5385,0.8723
+Q66,How does endpoint detection and response help after a phishi...,dense,0.6244,0.6609,1.0,0.8927
+Q67,What network segmentation strategies limit the blast radius ...,dense,0.6188,0.7162,1.0,0.8754
+Q68,How do web content filtering and secure web gateways protect...,dense,0.7155,0.7188,0.6667,0.9262
+Q69,What privileged access management controls reduce the impact...,dense,0.7115,0.6628,0.6,0.8757
+Q70,How does URL sandboxing and time-of-click analysis protect a...,dense,0.7252,0.7696,0.4286,0.9119
+Q71,What DLP policies should we configure to detect data exfiltr...,dense,0.7236,0.8124,0.8182,0.8681
+Q72,How should we integrate email security with our SIEM for phi...,dense,0.7776,0.7546,1.0,0.8796
+Q73,What role do CASB solutions play in detecting cloud account ...,dense,0.7146,0.811,1.0,0.9049
+Q74,How does email encryption and signing help users identify le...,dense,0.6569,0.6646,1.0,0.8837
+Q75,How can honeypot email accounts serve as early warning for p...,dense,0.675,0.7439,0.875,0.8765
+Q76,What does the ACSC Essential Eight require for email securit...,dense,0.6878,0.5684,0.9091,0.8622
+Q77,What GDPR notification requirements apply after a phishing d...,dense,0.6403,0.7592,1.0,0.9002
+Q78,How does PCI DSS v4.0 address phishing prevention requiremen...,dense,0.7729,0.7466,1.0,0.8854
+Q79,What ISO 27001 controls are relevant to phishing prevention?...,dense,0.769,0.7836,0.8889,0.887
+Q80,What are the CCPA implications of a phishing-related data br...,dense,0.5985,0.6511,0.6667,0.8651
+Q81,What Australian Privacy Act requirements apply to phishing b...,dense,0.6526,0.8049,1.0,0.9002
+Q82,How does the NIST Cybersecurity Framework v2.0 address phish...,dense,0.6743,0.7322,1.0,0.8628
+Q83,What SOX compliance considerations arise from phishing attac...,dense,0.7609,0.6928,0.5455,0.857
+Q84,What phishing threats are unique to healthcare organisations...,dense,0.722,0.6685,1.0,0.8626
+Q85,How should financial institutions defend against targeted ph...,dense,0.6858,0.6365,0.7,0.8832
+Q86,What phishing risks do educational institutions face and how...,dense,0.6935,0.6862,0.5556,0.8798
+Q87,What additional phishing controls do government agencies nee...,dense,0.5987,0.7485,0.7273,0.847
+Q88,What are the minimum phishing controls for small businesses ...,dense,0.6579,0.6126,0.6667,0.8907
+Q89,What phishing threats target the legal sector and how should...,dense,0.7198,0.6236,0.6,0.8592
+Q90,How do phishing attacks threaten energy sector OT and ICS sy...,dense,0.6784,0.598,0.8889,0.8469
+Q91,What seasonal phishing patterns affect the retail sector?...,dense,0.6687,0.6083,0.6,0.883
+Q92,How should manufacturers protect against phishing-enabled in...,dense,0.6092,0.5451,0.8571,0.8337
+Q93,What free security tools can non-profit organisations use fo...,dense,0.6765,0.6881,1.0,0.8921
+Q94,How does Zero Trust Architecture help defend against phishin...,dense,0.6429,0.6113,0.9,0.8494
+Q95,What is the role of DNS filtering in phishing prevention?...,dense,0.7245,0.8095,1.0,0.8883
+Q96,How does browser isolation protect against credential phishi...,dense,0.6754,0.7779,0.6667,0.8964
+Q97,How do password managers provide passive phishing protection...,dense,0.6496,0.7286,1.0,0.8783
+Q98,What role does threat intelligence play in proactive phishin...,dense,0.6652,0.6837,1.0,0.8947
+Q99,How should we configure SOAR playbooks for automated phishin...,dense,0.7532,0.8415,0.8571,0.8674
+Q100,What browser-based protections complement email security aga...,dense,0.7255,0.7388,0.5556,0.9126
+Q1,How should we handle spear-phishing attempts in a mid-sized ...,hybrid,0.5721,0.6587,0.5556,0.8347
+Q2,What email authentication protocols should we implement to p...,hybrid,0.6466,0.5238,0.8182,0.8442
+Q3,What are the best practices for security awareness training ...,hybrid,0.6894,0.8244,0.5714,0.8673
+Q4,How can we protect our organisation against Business Email C...,hybrid,0.6198,0.6877,0.6,0.864
+Q5,What technical controls does MITRE ATT&CK recommend for phis...,hybrid,0.6971,0.5463,0.75,0.8607
+Q6,How should our incident response team handle a confirmed phi...,hybrid,0.7161,0.7377,0.5556,0.9047
+Q7,What phishing defences are appropriate for a small business ...,hybrid,0.6509,0.6331,0.8889,0.8557
+Q8,How can we defend against QR code phishing and other emergin...,hybrid,0.7409,0.7663,0.7273,0.8822
+Q9,What role does multi-factor authentication play in phishing ...,hybrid,0.5548,0.682,0.6667,0.9024
+Q10,How do we protect against supply chain phishing attacks from...,hybrid,0.7146,0.642,0.4,0.8567
+Q11,How do we correctly configure SPF records for our domain?...,hybrid,0.5733,0.6364,0.8571,0.8546
+Q12,What is the recommended DMARC deployment strategy?...,hybrid,0.4639,0.5417,0.7,0.8849
+Q13,How does DKIM signing work and what key length should we use...,hybrid,0.7406,0.6677,0.6667,0.9151
+Q14,What email gateway policies should we configure to block phi...,hybrid,0.7188,0.7977,0.7273,0.897
+Q15,How can we detect emails from first-time external senders?...,hybrid,0.5095,0.5528,1.0,0.8883
+Q16,What is the benefit of adding external email banners for use...,hybrid,0.4378,0.6006,0.8571,0.8675
+Q17,How should we configure URL rewriting and link scanning in o...,hybrid,0.6421,0.6934,0.6667,0.8838
+Q18,What sandboxing technologies should we use for email attachm...,hybrid,0.5561,0.8041,0.6364,0.8592
+Q19,How do we prevent outbound data exfiltration through email a...,hybrid,0.6577,0.7338,0.8571,0.8965
+Q20,What anti-spoofing controls should we implement at the netwo...,hybrid,0.5242,0.3959,1.0,0.8909
+Q21,What is clone phishing and how do we detect it?...,hybrid,0.6054,0.7182,1.0,0.8647
+Q22,How do whaling attacks differ from standard spear-phishing?...,hybrid,0.6353,0.5548,1.0,0.8538
+Q23,What is angler phishing and how does it exploit social media...,hybrid,0.5892,0.6705,0.8182,0.8478
+Q24,How do pharming attacks work and what DNS protections should...,hybrid,0.5595,0.6472,0.7273,0.8835
+Q25,What is consent phishing and how does it abuse OAuth flows?...,hybrid,0.6832,0.7299,0.9231,0.8573
+Q26,How does callback phishing bypass email security controls?...,hybrid,0.6556,0.7438,1.0,0.8692
+Q27,What is lateral phishing and how do we detect compromised in...,hybrid,0.7193,0.7052,0.9,0.8722
+Q28,How do watering hole attacks relate to phishing and how do w...,hybrid,0.4962,0.7257,0.7273,0.8648
+Q29,What is search engine phishing and how do we protect users f...,hybrid,0.6272,0.6081,1.0,0.8495
+Q30,How do evil twin Wi-Fi attacks enable phishing and what cont...,hybrid,0.7174,0.5736,0.6667,0.8686
+Q31,How do deepfake phishing attacks work and what verification ...,hybrid,0.5834,0.7833,0.7,0.8623
+Q32,What are browser-in-the-browser attacks and how do we train ...,hybrid,0.533,0.5335,0.9,0.8662
+Q33,How do adversary-in-the-middle phishing kits defeat standard...,hybrid,0.6625,0.6489,0.75,0.873
+Q34,What is polymorphic phishing and how do we detect it when ea...,hybrid,0.555,0.7253,0.8,0.8667
+Q35,How do attackers use legitimate cloud services to host phish...,hybrid,0.6664,0.6744,1.0,0.8789
+Q36,What are adversary-in-the-middle phishing kits like Evilginx...,hybrid,0.5662,0.6092,0.875,0.8677
+Q37,How do attackers use homoglyph domains to evade detection?...,hybrid,0.4641,0.5979,0.8889,0.8705
+Q38,What is MFA fatigue and how did it lead to the Uber breach?...,hybrid,0.5597,0.5465,1.0,0.8699
+Q39,How do AI-generated phishing emails change the threat landsc...,hybrid,0.7007,0.6814,1.0,0.8699
+Q40,What techniques do attackers use to bypass URL reputation ch...,hybrid,0.5551,0.668,1.0,0.8697
+Q41,What is smishing and how should we protect our employees fro...,hybrid,0.7027,0.8102,0.8889,0.8766
+Q42,How do vishing attacks use caller ID spoofing and AI voice c...,hybrid,0.7259,0.7565,0.7143,0.8459
+Q43,What mobile device management policies help prevent mobile p...,hybrid,0.6468,0.7251,0.875,0.8637
+Q44,How should we extend our phishing defences beyond email to c...,hybrid,0.6121,0.7026,0.6667,0.8865
+Q45,What unique challenges does mobile phishing present compared...,hybrid,0.6325,0.5174,0.8571,0.8645
+Q46,What should the SOC analyst do first when a phishing email i...,hybrid,0.6972,0.8473,1.0,0.9074
+Q47,What containment actions should IT administrators take durin...,hybrid,0.7098,0.4914,0.875,0.8585
+Q48,How should the communications team manage internal notificat...,hybrid,0.6934,0.7164,0.8,0.8857
+Q49,What forensic analysis should be performed on phishing email...,hybrid,0.7273,0.7087,0.8,0.8907
+Q50,What is the CISO's role during a major phishing incident?...,hybrid,0.6736,0.7182,0.6667,0.9027
+Q51,How should the legal team assess regulatory obligations afte...,hybrid,0.6987,0.7857,0.8571,0.8616
+Q52,What role does HR play in phishing incident response?...,hybrid,0.7344,0.7605,0.7,0.8749
+Q53,How should vendor relationships be managed during a supply c...,hybrid,0.7348,0.752,0.8571,0.8652
+Q54,What should be included in a phishing response playbook?...,hybrid,0.6025,0.6688,0.6667,0.871
+Q55,How do we conduct a post-incident review after a phishing at...,hybrid,0.6447,0.7039,1.0,0.8905
+Q56,What cognitive biases make humans susceptible to phishing at...,hybrid,0.5137,0.5335,1.0,0.8589
+Q57,How do we build a positive phishing reporting culture withou...,hybrid,0.715,0.7583,0.6364,0.8643
+Q58,What metrics should we use to measure our phishing awareness...,hybrid,0.7361,0.7848,0.6364,0.875
+Q59,How should security awareness training be tailored for diffe...,hybrid,0.6128,0.7281,0.9,0.9012
+Q60,What is phishing fatigue and how do we manage simulation fre...,hybrid,0.6992,0.7681,0.6667,0.8801
+Q61,How can security champion programs improve phishing resilien...,hybrid,0.6519,0.7546,0.8571,0.8639
+Q62,What gamification techniques work best for phishing awarenes...,hybrid,0.702,0.8081,0.6364,0.8801
+Q63,What is the human firewall concept and how do we build it ef...,hybrid,0.7056,0.6095,1.0,0.888
+Q64,How often should we run phishing simulations and what diffic...,hybrid,0.6293,0.773,0.7,0.8839
+Q65,How do we handle employees who repeatedly fall for simulated...,hybrid,0.7051,0.7104,0.5385,0.8554
+Q66,How does endpoint detection and response help after a phishi...,hybrid,0.6199,0.6411,0.875,0.8979
+Q67,What network segmentation strategies limit the blast radius ...,hybrid,0.6091,0.7339,1.0,0.9142
+Q68,How do web content filtering and secure web gateways protect...,hybrid,0.6337,0.6225,0.625,0.9374
+Q69,What privileged access management controls reduce the impact...,hybrid,0.6975,0.6412,1.0,0.8725
+Q70,How does URL sandboxing and time-of-click analysis protect a...,hybrid,0.7153,0.7333,0.8889,0.8898
+Q71,What DLP policies should we configure to detect data exfiltr...,hybrid,0.6938,0.717,0.6667,0.8909
+Q72,How should we integrate email security with our SIEM for phi...,hybrid,0.7569,0.8053,0.6667,0.8987
+Q73,What role do CASB solutions play in detecting cloud account ...,hybrid,0.7146,0.8027,1.0,0.9098
+Q74,How does email encryption and signing help users identify le...,hybrid,0.6569,0.662,0.6667,0.8874
+Q75,How can honeypot email accounts serve as early warning for p...,hybrid,0.6617,0.7271,1.0,0.8918
+Q76,What does the ACSC Essential Eight require for email securit...,hybrid,0.6878,0.5201,0.8333,0.857
+Q77,What GDPR notification requirements apply after a phishing d...,hybrid,0.6079,0.7787,0.7778,0.8827
+Q78,How does PCI DSS v4.0 address phishing prevention requiremen...,hybrid,0.6947,0.6913,1.0,0.8754
+Q79,What ISO 27001 controls are relevant to phishing prevention?...,hybrid,0.769,0.6363,1.0,0.8748
+Q80,What are the CCPA implications of a phishing-related data br...,hybrid,0.5821,0.681,0.7,0.8848
+Q81,What Australian Privacy Act requirements apply to phishing b...,hybrid,0.6403,0.7939,1.0,0.8831
+Q82,How does the NIST Cybersecurity Framework v2.0 address phish...,hybrid,0.6488,0.701,1.0,0.8622
+Q83,What SOX compliance considerations arise from phishing attac...,hybrid,0.7494,0.7222,0.7273,0.876
+Q84,What phishing threats are unique to healthcare organisations...,hybrid,0.722,0.5861,1.0,0.856
+Q85,How should financial institutions defend against targeted ph...,hybrid,0.635,0.6338,0.7273,0.8624
+Q86,What phishing risks do educational institutions face and how...,hybrid,0.597,0.6797,0.6667,0.88
+Q87,What additional phishing controls do government agencies nee...,hybrid,0.5059,0.6695,0.8182,0.8678
+Q88,What are the minimum phishing controls for small businesses ...,hybrid,0.6338,0.6898,0.8,0.8591
+Q89,What phishing threats target the legal sector and how should...,hybrid,0.7109,0.6926,0.6,0.8841
+Q90,How do phishing attacks threaten energy sector OT and ICS sy...,hybrid,0.6652,0.5566,0.6,0.8432
+Q91,What seasonal phishing patterns affect the retail sector?...,hybrid,0.6687,0.6028,0.5556,0.8746
+Q92,How should manufacturers protect against phishing-enabled in...,hybrid,0.4856,0.4948,0.5833,0.8564
+Q93,What free security tools can non-profit organisations use fo...,hybrid,0.6765,0.6652,1.0,0.8871
+Q94,How does Zero Trust Architecture help defend against phishin...,hybrid,0.5241,0.5438,0.8889,0.8504
+Q95,What is the role of DNS filtering in phishing prevention?...,hybrid,0.6954,0.6718,0.625,0.9063
+Q96,How does browser isolation protect against credential phishi...,hybrid,0.6754,0.7747,0.6667,0.9022
+Q97,How do password managers provide passive phishing protection...,hybrid,0.6496,0.7334,1.0,0.8747
+Q98,What role does threat intelligence play in proactive phishin...,hybrid,0.6652,0.6518,1.0,0.9172
+Q99,How should we configure SOAR playbooks for automated phishin...,hybrid,0.7532,0.8273,0.75,0.8669
+Q100,What browser-based protections complement email security aga...,hybrid,0.6145,0.7453,0.6,0.8879

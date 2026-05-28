@@ -1,0 +1,987 @@
+[
+  {
+    "text": "Phishing is a form of social engineering in which an attacker attempts to fraudulently acquire sensitive information from a victim by impersonating a trustworthy entity in an electronic communication. Phishing attacks most commonly use email as the delivery mechanism, but they can also be carried out through instant messaging, social media platforms, SMS (known as smishing), and voice calls (known as vishing). The attacker typically crafts a message that appears to come from a legitimate organisation such as a bank, government agency, or well-known technology company. The message often contains a sense of urgency, requesting the recipient to click on a malicious link, open an infected attachment, or provide credentials directly.",
+    "source": "NIST SP 800-61 Rev. 2 - Computer Security Incident Handling Guide",
+    "topic": "phishing_fundamentals"
+  },
+  {
+    "text": "Spear-phishing is a targeted variant of phishing where the attacker customises the attack email for a specific individual, role, or organisation. The attacker researches the target using publicly available information from social media profiles, corporate websites, and professional networking platforms. This reconnaissance enables the attacker to craft highly convincing messages that reference specific projects, colleagues, or organisational events. Spear-phishing attacks are significantly more difficult to detect than generic phishing because they bypass the typical indicators that users are trained to look for, such as generic greetings and obvious spelling errors.",
+    "source": "NIST SP 800-61 Rev. 2 - Computer Security Incident Handling Guide",
+    "topic": "spear_phishing"
+  },
+  {
+    "text": "Business Email Compromise (BEC) represents one of the most financially damaging forms of phishing. In a BEC attack, the attacker either compromises or spoofs the email account of a senior executive, vendor, or business partner. The attacker then uses this trusted identity to send fraudulent requests, typically involving wire transfers, payroll diversions, or sensitive data disclosure. BEC attacks often do not contain malicious links or attachments, making them particularly difficult for traditional email security tools to detect. The FBI's Internet Crime Complaint Center reported that BEC attacks caused over $2.9 billion in losses in 2023 alone.",
+    "source": "FBI IC3 Report 2023 / NIST Guidelines",
+    "topic": "business_email_compromise"
+  },
+  {
+    "text": "When a phishing incident is detected, the incident response team should follow a structured handling process. The first step is to contain the incident by isolating affected systems and disabling compromised accounts. If the user clicked a malicious link, the security team should immediately reset the user's credentials and check for any unauthorised access or data exfiltration. The phishing email should be reported to the organisation's security operations centre (SOC) and preserved as evidence. The IT team should block the sender's address and any malicious URLs at the email gateway and web proxy. All users who may have received the same phishing email should be notified and instructed not to interact with it.",
+    "source": "NIST SP 800-61 Rev. 2 - Computer Security Incident Handling Guide",
+    "topic": "incident_response"
+  },
+  {
+    "text": "Post-incident activities for phishing attacks should include a thorough analysis of the attack vector to determine how the phishing email bypassed existing security controls. The incident response team should document the timeline of events, the indicators of compromise (IOCs), and the response actions taken. Lessons learned should be used to update email filtering rules, adjust security awareness training content, and refine detection signatures. The organisation should also share relevant IOCs with industry partners and Information Sharing and Analysis Centers (ISACs) to support collective defence.",
+    "source": "NIST SP 800-61 Rev. 2 - Computer Security Incident Handling Guide",
+    "topic": "incident_response"
+  },
+  {
+    "text": "Security Awareness Training (AT-2) is a critical control for phishing prevention. Organisations should implement a comprehensive security awareness program that educates all users about recognising phishing attempts. Training should cover how to identify suspicious emails by examining sender addresses, checking for mismatched URLs, recognising urgent or threatening language, and verifying requests through separate communication channels. Training should be conducted at least annually, with supplemental training provided when new phishing techniques emerge. Simulated phishing exercises should be conducted regularly to measure the effectiveness of the training program and identify users who require additional education.",
+    "source": "NIST SP 800-53 Rev. 5 - Security and Privacy Controls",
+    "topic": "security_awareness_training"
+  },
+  {
+    "text": "Email authentication mechanisms are essential technical controls for phishing prevention. Organisations should implement SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), and DMARC (Domain-based Message Authentication, Reporting, and Conformance) for all organisational domains. SPF specifies which mail servers are authorised to send email on behalf of a domain. DKIM adds a digital signature to outgoing messages to verify that they have not been altered in transit. DMARC builds on SPF and DKIM by specifying how receiving mail servers should handle messages that fail authentication checks. A DMARC policy of 'reject' provides the strongest protection against domain spoofing.",
+    "source": "NIST SP 800-53 Rev. 5 / CISA Email Authentication Guide",
+    "topic": "email_authentication"
+  },
+  {
+    "text": "Multi-factor authentication (MFA) serves as a critical defence-in-depth control against phishing attacks. Even if an attacker successfully obtains a user's credentials through a phishing attack, MFA prevents the attacker from accessing the account without the additional authentication factor. Organisations should implement phishing-resistant MFA methods such as FIDO2 security keys or platform authenticators rather than SMS-based one-time passwords, which can be intercepted through SIM swapping attacks. NIST recommends that phishing-resistant MFA be required for all privileged accounts and strongly encouraged for all user accounts.",
+    "source": "NIST SP 800-63B - Digital Identity Guidelines",
+    "topic": "multi_factor_authentication"
+  },
+  {
+    "text": "Access control measures (AC-3, AC-6) should be implemented based on the principle of least privilege to limit the impact of successful phishing attacks. Users should only have access to the systems and data necessary for their job functions. Administrative privileges should be tightly controlled and only used through separate privileged accounts. Privileged Access Management (PAM) solutions can enforce just-in-time access, requiring explicit approval for elevated privileges. This approach limits the blast radius of a compromised account, as the attacker gains only the permissions assigned to the compromised user's role.",
+    "source": "NIST SP 800-53 Rev. 5 - Security and Privacy Controls",
+    "topic": "access_control"
+  },
+  {
+    "text": "MITRE ATT&CK identifies phishing under technique T1566, categorised under the Initial Access tactic. The technique has three sub-techniques: T1566.001 (Spearphishing Attachment), T1566.002 (Spearphishing Link), and T1566.003 (Spearphishing via Service). In Spearphishing Attachment attacks, adversaries send spear-phishing emails with malicious attachments, typically in the form of Office documents with macros, PDFs with embedded scripts, or compressed archives containing executables. In Spearphishing Link attacks, the email contains a link to a malicious website designed to harvest credentials or deliver malware through drive-by downloads.",
+    "source": "MITRE ATT&CK Framework - T1566",
+    "topic": "mitre_attack_phishing"
+  },
+  {
+    "text": "Spearphishing via Service (T1566.003) involves adversaries sending phishing messages through third-party services rather than enterprise email. This includes social media direct messages, messaging platforms like Slack or Microsoft Teams, and professional networking sites like LinkedIn. These channels often bypass traditional email security controls and may be perceived as more trustworthy by recipients. Adversaries may also use legitimate cloud services such as Google Drive, Dropbox, or OneDrive to host malicious files, making the shared links appear more credible.",
+    "source": "MITRE ATT&CK Framework - T1566.003",
+    "topic": "mitre_attack_phishing"
+  },
+  {
+    "text": "MITRE ATT&CK recommends several mitigations for phishing (T1566). M1049 (Antivirus/Antimalware) involves deploying endpoint protection that can scan email attachments and block known malware signatures. M1031 (Network Intrusion Prevention) suggests using intrusion detection signatures to identify phishing emails based on known indicators. M1021 (Restrict Web-Based Content) recommends blocking access to known malicious domains and implementing URL filtering. M1054 (Software Configuration) includes disabling macros in Office documents by default and configuring email clients to display external email warnings. M1017 (User Training) emphasises the importance of training users to identify social engineering techniques.",
+    "source": "MITRE ATT&CK Framework - Mitigations for T1566",
+    "topic": "mitre_mitigations"
+  },
+  {
+    "text": "CISA recommends that organisations implement a layered approach to phishing defence. At the email gateway level, organisations should deploy advanced email filtering solutions that use machine learning to detect phishing attempts based on sender reputation, content analysis, and URL scanning. Sandboxing technologies should be used to detonate suspicious attachments in an isolated environment before delivering them to users. Link rewriting services can replace URLs in emails with safe versions that redirect through a scanning proxy, providing real-time protection against previously unknown malicious sites.",
+    "source": "CISA - Phishing Guidance: Stopping the Attack Cycle at Phase One",
+    "topic": "email_security_controls"
+  },
+  {
+    "text": "Organisations should establish a clear and easy-to-use phishing reporting mechanism for employees. This can be implemented as a 'Report Phishing' button integrated into the email client. When a user reports a suspicious email, it should be automatically forwarded to the security team for analysis. Organisations that make reporting easy and reward users for reporting (rather than penalising those who fall for simulated phishing) see significantly higher reporting rates. A culture of reporting, rather than blame, is essential for building an effective human firewall against phishing.",
+    "source": "CISA - Phishing Guidance: Stopping the Attack Cycle at Phase One",
+    "topic": "reporting_mechanisms"
+  },
+  {
+    "text": "For small and medium-sized enterprises (SMEs) with limited security resources, CISA recommends starting with foundational controls. These include enabling MFA on all email accounts, implementing DMARC with a policy of at least 'quarantine', keeping all software and operating systems up to date, and conducting basic security awareness training. Cloud-based email security solutions offer affordable protection for SMEs without requiring dedicated security infrastructure. Many email providers such as Microsoft 365 and Google Workspace include built-in phishing protection features that should be enabled and properly configured.",
+    "source": "CISA - Phishing Guidance for SMEs",
+    "topic": "sme_guidance"
+  },
+  {
+    "text": "From a web application security perspective, OWASP recommends implementing anti-phishing measures at the application level. This includes using Content Security Policy (CSP) headers to prevent content injection, implementing Subresource Integrity (SRI) to ensure that externally loaded scripts have not been tampered with, and using HTTPS exclusively to prevent man-in-the-middle attacks that could redirect users to phishing sites. Web applications should also implement visual indicators of authenticity, such as personalised security images or phrases, to help users verify they are on the legitimate site.",
+    "source": "OWASP - Social Engineering Prevention Cheat Sheet",
+    "topic": "web_application_controls"
+  },
+  {
+    "text": "Credential phishing attacks often direct victims to convincing replicas of legitimate login pages. To defend against these attacks, organisations should implement Web Authentication (WebAuthn) standards that bind credentials to specific domains, making them unusable on phishing sites. Password managers also provide passive phishing protection because they auto-fill credentials only on the correct domain. If a user navigates to a phishing site, the password manager will not recognise the domain and will not offer to fill in the credentials, providing a visual cue that something is wrong.",
+    "source": "OWASP - Credential Stuffing Prevention / Web Security Guidelines",
+    "topic": "credential_phishing_defence"
+  },
+  {
+    "text": "Advanced phishing detection increasingly relies on machine learning models that analyse email metadata, content, and sender behaviour. These models can identify anomalies such as first-time senders impersonating known contacts, emails sent at unusual times, or messages containing linguistic patterns associated with social engineering. Natural language processing techniques can detect the urgency and authority cues commonly used in phishing emails, such as threats of account suspension, requests for immediate action, or impersonation of senior executives. Organisations deploying AI-based email security should regularly retrain their models to keep pace with evolving attacker tactics.",
+    "source": "CrowdStrike - Threat Intelligence Report 2024",
+    "topic": "ml_based_detection"
+  },
+  {
+    "text": "QR code phishing (quishing) has emerged as a growing attack vector. Attackers embed malicious QR codes in phishing emails, knowing that most email security tools cannot scan QR code content. When scanned with a mobile device, these codes redirect users to credential harvesting sites. This technique is particularly effective because mobile devices often lack the same level of security controls as corporate desktops. Organisations should educate users about quishing risks and consider implementing QR code scanning capabilities in their email security stack.",
+    "source": "Mandiant / CrowdStrike Threat Reports 2024",
+    "topic": "emerging_threats"
+  },
+  {
+    "text": "The Anti-Phishing Working Group (APWG) reported over 4.7 million phishing attacks in 2023, the highest number ever recorded. The most targeted sectors were financial institutions (27.8%), SaaS/webmail providers (19.4%), and social media platforms (15.1%). The use of HTTPS on phishing sites has become nearly universal, with over 95% of phishing pages now using SSL certificates, undermining the traditional advice to look for the padlock icon. Attackers are increasingly using legitimate cloud hosting platforms to host phishing pages, making domain-based blocking less effective.",
+    "source": "APWG - Phishing Activity Trends Report 2023",
+    "topic": "threat_landscape"
+  },
+  {
+    "text": "DNS-based protections provide an important layer of defence against phishing. Protective DNS services (such as CISA's Protective DNS offering) can block access to known phishing domains at the DNS resolution level, preventing users from reaching malicious sites even if they click on a phishing link. DNS filtering can be applied at the network level to protect all devices, including personal devices connected to the corporate network. Organisations should also monitor DNS logs for indicators of compromise, such as queries to newly registered domains or domains with high entropy names.",
+    "source": "CISA - Protective DNS Guide / NSA Cybersecurity Advisory",
+    "topic": "dns_protection"
+  },
+  {
+    "text": "Zero Trust Architecture (ZTA) principles are increasingly relevant to phishing defence. In a Zero Trust model, no user, device, or network is inherently trusted. Every access request is verified based on identity, device health, location, and risk level. This approach limits the impact of successful phishing attacks because even with valid credentials, the attacker must meet additional verification requirements to access sensitive resources. Continuous authentication and behavioural analytics can detect account takeover attempts following credential compromise through phishing.",
+    "source": "NIST SP 800-207 - Zero Trust Architecture",
+    "topic": "zero_trust"
+  },
+  {
+    "text": "Phishing simulation programs are a key component of organisational security posture assessment. Effective simulation programs should progressively increase in difficulty, starting with obvious phishing indicators and gradually introducing more sophisticated techniques. Metrics to track include click rate, reporting rate, time to report, and repeat offender rates. Research shows that organisations running monthly simulations see a 60% reduction in phishing susceptibility within the first year. However, simulation programs must be designed carefully to avoid creating a culture of fear or distrust. Employees who fall for simulations should be directed to additional training rather than disciplinary action.",
+    "source": "SANS Institute - Security Awareness Training Guidelines",
+    "topic": "phishing_simulations"
+  },
+  {
+    "text": "Mobile phishing (mishing) presents unique challenges because mobile devices have smaller screens that make it harder to inspect URLs, and mobile browsers often truncate the address bar. SMS-based phishing (smishing) exploits the trust users place in text messages and the immediacy of the mobile channel. Voice phishing (vishing) uses phone calls, often employing caller ID spoofing and AI-generated voice deepfakes to impersonate trusted individuals. Organisations should extend their phishing defence strategy to cover all communication channels, not just email, and ensure that mobile device management (MDM) solutions include anti-phishing capabilities.",
+    "source": "CISA Advisory / Lookout Mobile Threat Report 2024",
+    "topic": "mobile_phishing"
+  },
+  {
+    "text": "Supply chain phishing attacks target organisations through their trusted vendors, suppliers, and partners. Attackers compromise a vendor's email system and use the established trust relationship to send phishing emails to the vendor's customers. These attacks are particularly dangerous because the emails come from a legitimate and known sender. Organisations should implement vendor email verification procedures, require MFA for vendor portal access, and establish out-of-band verification procedures for any financial transactions or sensitive data requests originating from vendor accounts.",
+    "source": "NIST Cybersecurity Framework / Supply Chain Risk Management",
+    "topic": "supply_chain_phishing"
+  },
+  {
+    "text": "Email header analysis is a valuable technique for investigating phishing emails. Security analysts should examine the Return-Path, Received headers, and authentication results (SPF, DKIM, DMARC) to determine the true origin of an email. Mismatches between the displayed From address and the actual sending infrastructure are strong indicators of phishing. The X-Originating-IP header can reveal the geographic location of the sender. Message-ID patterns can sometimes link multiple phishing emails to the same campaign. Analysts should also check if the sending domain was recently registered, as newly registered domains are frequently used in phishing campaigns.",
+    "source": "SANS Institute - Email Forensics Guide",
+    "topic": "email_forensics"
+  },
+  {
+    "text": "Phishing attacks increasingly leverage legitimate services and infrastructure to evade detection. Attackers use services like Google Forms, Microsoft Forms, and Typeform to create credential harvesting pages hosted on trusted domains. They abuse cloud storage platforms to distribute malicious files through shared links that bypass URL reputation checks. They register domains using homoglyph techniques, replacing characters with visually similar ones from different character sets (e.g., using Cyrillic 'a' instead of Latin 'a'). Advanced attackers also use adversary-in-the-middle (AiTM) phishing kits that can intercept MFA tokens in real time, defeating standard two-factor authentication.",
+    "source": "Microsoft Digital Defense Report 2024",
+    "topic": "evasion_techniques"
+  },
+  {
+    "text": "Implementing a Security Information and Event Management (SIEM) system helps organisations correlate email security events with other security data to detect phishing campaigns. SIEM rules can be configured to alert on patterns such as multiple users receiving similar suspicious emails, a single user account sending login requests from multiple geographic locations shortly after receiving a phishing email, or sudden spikes in failed authentication attempts. Integration between the email security gateway and the SIEM enables automated response actions, such as quarantining similar emails across the organisation when one is confirmed as phishing.",
+    "source": "NIST SP 800-53 Rev. 5 / Security Operations Best Practices",
+    "topic": "siem_integration"
+  },
+  {
+    "text": "Regulatory frameworks increasingly mandate phishing protections as part of broader cybersecurity requirements. The Australian Cyber Security Centre (ACSC) Essential Eight includes email filtering and user application hardening as key mitigation strategies. The European Union's NIS2 Directive requires organisations in critical sectors to implement measures against social engineering attacks. ISO 27001:2022 includes controls for information security awareness training (A.6.3) and protection against malware (A.8.7) that directly address phishing risks. Compliance with these frameworks provides a structured approach to building phishing resilience.",
+    "source": "ACSC Essential Eight / ISO 27001:2022 / NIS2 Directive",
+    "topic": "regulatory_compliance"
+  },
+  {
+    "text": "Threat intelligence feeds provide real-time information about active phishing campaigns, including known malicious URLs, sender IP addresses, email subject lines, and file hashes associated with phishing attachments. Organisations should subscribe to multiple threat intelligence sources, including open-source feeds (PhishTank, OpenPhish), commercial feeds, and sector-specific ISACs. Automated integration of threat intelligence with email security gateways enables proactive blocking of known phishing infrastructure. Threat intelligence sharing among industry peers through platforms like MISP (Malware Information Sharing Platform) strengthens collective defence against phishing campaigns.",
+    "source": "MITRE ATT&CK / Threat Intelligence Best Practices",
+    "topic": "threat_intelligence"
+  },
+  {
+    "text": "Organisations should develop and maintain a phishing response playbook that outlines step-by-step procedures for handling reported phishing emails. The playbook should cover initial triage (assessing the severity and scope of the phishing attempt), technical analysis (examining headers, URLs, and attachments), containment actions (blocking sender, quarantining emails, resetting compromised credentials), eradication (removing malicious content from mailboxes), and recovery (restoring any affected systems). The playbook should also include communication templates for notifying affected users, escalation procedures for high-severity incidents, and criteria for engaging law enforcement.",
+    "source": "NIST SP 800-61 Rev. 2 / Incident Response Best Practices",
+    "topic": "response_playbook"
+  },
+  {
+    "text": "Browser-based phishing protections complement email security controls by providing a last line of defence when users click on phishing links. Modern web browsers include built-in phishing detection powered by Safe Browsing databases (Google Safe Browsing, Microsoft SmartScreen) that warn users when they navigate to known phishing sites. Browser isolation technology can render web content in a remote container, preventing credential theft even if the user visits a phishing page. Enterprise browsers and browser extensions can enforce policies that block form submissions on unrecognised domains and require additional verification before entering credentials on external sites.",
+    "source": "CISA Web Security Guidelines / Browser Security Best Practices",
+    "topic": "browser_protection"
+  },
+  {
+    "text": "AI-generated phishing represents an evolving threat that leverages large language models to create highly convincing phishing emails at scale. These AI-generated messages are grammatically correct, contextually appropriate, and free of the spelling and formatting errors that traditionally served as phishing indicators. Attackers can use LLMs to generate personalised phishing emails for each target, creating unique messages that evade template-based detection. Research has shown that AI-generated phishing emails have a higher click-through rate than human-crafted ones. Defending against AI-generated phishing requires shifting from content-based detection to behaviour-based and context-based analysis.",
+    "source": "IBM X-Force Threat Intelligence Index 2024",
+    "topic": "ai_generated_phishing"
+  },
+  {
+    "text": "Adversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns.",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Adversaries may send victims emails containing malicious attachments or links, typically to execute malicious code on victim systems. Phishing may also be conducted via third-party services, like social media platforms. Phishing may also involve social engineering techniques, such as posing as a trusted source, as well as evasive techniques such as removing or manipulating emails or metadata/headers from compromised accounts being abused to send messages (e.g., Email Hiding Rules).[1][2] Another way to accomplish this is by Email Spoofing[3] the identity of the sender, which can be used to fool both the human recipient as well as automated security tools,[4] or by including the intended target as a party to an existing email thread that includes malicious files or links (i.e., \"thread hijacking\").[5]",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Victims may also receive phishing messages that instruct them to call a phone number where they are directed to visit a malicious URL, download malware,[6][7] or install adversary-accessible remote management tools onto their computer (i.e., User Execution).[8]",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Royal has been spread through the use of phishing campaigns including \"call back phishing\" where victims are lured into calling a number provided through email.[18][19][20]",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "VOID MANTICORE has emailed victims threatening messages.[22] VOID MANTICORE has used phishing as an initial access vector.[23]",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Perform audits or scans of systems, permissions, insecure software, insecure configurations, etc. to identify potential weaknesses.",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Network intrusion prevention systems and systems designed to scan and remove malicious email attachments or links can be used to block activity.",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Determine if certain websites or attachment types (ex: .scr, .exe, .pif, .cpl, etc.) that can be used for phishing are necessary for business operations and consider blocking access if activity cannot be monitored well or if it poses a significant risk.",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Use anti-spoofing and email authentication mechanisms to filter messages based on validity checks of the sender domain (using SPF) and integrity of messages (using DKIM). Enabling these mechanisms within an organization (through policies such as DMARC) may enable recipients (intra-org and cross domain) to perform similar message filtering and validation.[24][25]",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Unusual inbound email activity where attachments or embedded URLs are delivered to users followed by execution of new processes or suspicious document behavior. Detection involves correlating email metadata, file creation, and network activity after a phishing message is received.",
+    "source": "MITRE ATT&CK T1566 (Scraped)",
+    "topic": "mitre_scraped_phishing"
+  },
+  {
+    "text": "Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems. Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon User Execution to gain execution.[1] Spearphishing may also involve social engineering techniques, such as posing as a trusted source.",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "There are many options for the attachment such as Microsoft Office documents, executables, PDFs, or archived files. Upon opening the attachment (and potentially clicking past protections), the adversary's payload exploits a vulnerability or directly executes on the user's system. The text of the spearphishing email usually tries to give a plausible reason why the file should be opened, and may explain how to bypass system protections in order to do so. The email may also contain instructions on how to decrypt an attachment, such as a zip file password, in order to evade email boundary defenses. Adversaries frequently manipulate file extensions and icons in order to make attached executables appear to be document files, or files exploiting one application appear to be a file for a different one.",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "During the 2015 Ukraine Electric Power Attack, Sandworm Team obtained their initial foothold into many IT systems using Microsoft Office attachments delivered through phishing emails. [2]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "APT-C-36 has used spearphishing emails with malicious .pdf and .docx files and password protected RAR attachments to avoid being detected by the email gateway.[9][10][11][11]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "APT29 has used spearphishing emails with an attachment to deliver files with exploits to initial victims.[25][26][27][28]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "APT32 has sent spearphishing emails with a malicious executable disguised as a document or spreadsheet.[30][31][32][33][34][35]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "APT41 sent spearphishing emails with attachments such as compiled HTML (.chm) files to initially compromise their victims.[44]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "BlackTech has used spearphishing e-mails with malicious password-protected archived files (ZIP or RAR) to deliver malware.[51][52]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "For C0015, security researchers assessed the threat actors likely used a phishing campaign to distribute a weaponized attachment to victims.[61]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "Cobalt Group has sent spearphishing emails with various attachment types to corporate and personal email accounts of victim organizations. Attachment types have included .rtf, .doc, .xls, archives containing LNK files, and password protected archives containing .exe and .scr executables.[64][65][66][67][68][69][70][71]",
+    "source": "MITRE ATT&CK T1566.001 (Scraped)",
+    "topic": "mitre_scraped_attachment"
+  },
+  {
+    "text": "Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems. Spearphishing with a link is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of links to download malware contained in email, instead of attaching malicious files to the email itself, to avoid defenses that may inspect email attachments. Spearphishing may also involve social engineering techniques, such as posing as a trusted source.",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this case, the malicious emails contain links. Generally, the links will be accompanied by social engineering text and require the user to actively click or copy and paste a URL into a browser, leveraging User Execution. The visited website may compromise the web browser using an exploit, or the user will be prompted to download applications, documents, zip files, or even executables depending on the pretext for the email in the first place.",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "Adversaries may also include links that are intended to interact directly with an email reader, including embedded images intended to exploit the end system directly. Additionally, adversaries may use seemingly benign links that abuse special characters to mimic legitimate websites (known as an \"IDN homograph attack\").[1] URLs may also be obfuscated by taking advantage of quirks in the URL schema, such as the acceptance of integer- or hexadecimal-based hostname formats and the automatic discarding of text before an \"@\" symbol: for example, hxxp://google.com@1157586937.[2]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "Adversaries may also utilize links to perform consent phishing/spearphishing campaigns to Steal Application Access Tokens that grant immediate access to the victim environment. For example, a user may be lured into granting adversaries permissions/access via a malicious OAuth 2.0 request URL that when accepted by the user provide permissions/access for malicious applications.[3][4] These stolen access tokens allow the adversary to perform various actions on behalf of the user via API calls.[4]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "Similarly, malicious links may also target device-based authorization, such as OAuth 2.0 device authorization grant flow which is typically used to authenticate devices without UIs/browsers. Known as \"device code phishing,\" an adversary may send a link that directs the victim to a malicious authorization page where the user is tricked into entering a code/credentials that produces a device token.[5][6][7]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "APT-C-36 has sent emails containing a link that appear to lead to an urgent notification from a government institution, at times using URL shorteners like cort[.]as, acortaurl[.]com, and gtly[.]to.[10][11][11][12]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "APT29 has used spearphishing with a link to trick victims into clicking on a link to a zip file containing malicious files.[14][15][16]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "During C0021, the threat actors sent phishing emails with unique malicious links, likely for tracking victim clicks.[37][38]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "DarkGate is distributed in phishing emails containing links to distribute malicious VBS or MSI files.[42] DarkGate uses applications such as Microsoft Teams for distributing links to payloads.[42]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "Elderwood has delivered zero-day exploits and malware to victims via targeted emails containing a link to malicious content hosted on an uncommon Web server.[44][45]",
+    "source": "MITRE ATT&CK T1566.002 (Scraped)",
+    "topic": "mitre_scraped_link"
+  },
+  {
+    "text": "Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems. Spearphishing via service is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of third party services rather than directly via enterprise email channels.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries send messages through various social media services, personal webmail, and other non-enterprise controlled services.[1] These services are more likely to have a less-strict security policy than an enterprise. As with most kinds of spearphishing, the goal is to generate rapport with the target or get the target's interest in some way. Adversaries will create fake social media accounts and message employees for potential job opportunities. Doing so allows a plausible reason for asking about services, policies, and software that's running in an environment. The adversary can then send malicious links or attachments through these services.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "A common example is to build rapport with a target via social media, then send content to a personal webmail service that the target uses on their work computer. This allows an adversary to bypass some email restrictions on the work account, and the target is more likely to open the file since it's something they were expecting. If the payload doesn't work as expected, the adversary can continue normal communications and troubleshoot with the target on how to get it working.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Contagious Interview has used fake job advertisements and messages sent via social media to spearphish targets.[4][5][6][7][8][9] Contagious Interview has also leveraged hiring websites to solicit victims.[6]",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Magic Hound used various social media channels (such as LinkedIn) as well as messaging services (such as WhatsApp) to spearphish victims.[14][15][16]",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "During Operation Dream Job, Lazarus Group sent victims spearphishing messages via LinkedIn concerning fictitious jobs.[20][21]",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Storm-1811 has used Microsoft Teams to send messages and initiate voice calls to victims posing as IT support personnel.[22]",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Implement auditing and logging for interactions with third-party messaging services or collaboration platforms. Monitor user activity and review logs for signs of suspicious links, downloads, or file exchanges that could indicate spearphishing attempts. Effective auditing allows for the quick identification of malicious activity originating from compromised service accounts.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Determine if certain social media sites, personal webmail services, or other service that can be used for spearphishing is necessary for business operations and consider blocking access if activity cannot be monitored well or if it poses a significant risk.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "Enforce strict user account management policies on third-party service accounts to control access and limit privileges. Configure accounts with the minimum permissions necessary to perform their roles and regularly review access levels. This minimizes the risk of adversaries exploiting service accounts to execute spearphishing attacks or gain unauthorized access to sensitive resources.",
+    "source": "MITRE ATT&CK T1566.003 (Scraped)",
+    "topic": "mitre_scraped_service"
+  },
+  {
+    "text": "User Training involves educating employees and contractors on recognizing, reporting, and preventing cyber threats that rely on human interaction, such as phishing, social engineering, and other manipulative techniques. Comprehensive training programs create a human firewall by empowering users to be an active component of the organization's cybersecurity defenses. This mitigation can be implemented through the following measures:",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train users to be suspicious about certificate errors. Adversaries may use their own certificates in an attempt to intercept HTTPS traffic. Certificate errors may arise when the application\u2019s certificate does not match the one expected by the host.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train users to be suspicious about certificate errors. Adversaries may use their own certificates in an attempt to intercept HTTPS traffic. Certificate errors may arise when the application\u2019s certificate does not match the one expected by the host.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train users to be suspicious about access points marked as \"Open\" or \"Unsecure\" as well as certificate errors. Certificate errors may arise when the application\u2019s certificate does not match the one expected by the host.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Develop and publish policies that define acceptable information to be stored in CRM databases and acceptable handling of customer data. Only store customer information required for business operations.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Develop and publish policies that define acceptable information to be stored in databases and acceptable handling of customer data. Only store information required for business operations.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train users to be aware of access or manipulation attempts by an adversary to reduce the risk of successful spearphishing, social engineering, and other techniques that involve user interaction.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train users to be aware of access or manipulation attempts by an adversary to reduce the risk of successful social engineering via e-mail bombing.",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Train and encourage users to identify social engineering techniques used to enable financial theft. Also consider training users on procedures to prevent and respond to swatting and doxing, acts increasingly deployed by financially motivated groups to further coerce victims into satisfying ransom/extortion demands.[2][3]",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Use user training as a way to bring awareness and raise suspicion for potentially malicious events and dialog boxes (ex: Office documents prompting for credentials).",
+    "source": "MITRE ATT&CK M1017 User Training (Scraped)",
+    "topic": "mitre_scraped_training"
+  },
+  {
+    "text": "Antivirus/Antimalware solutions utilize signatures, heuristics, and behavioral analysis to detect, block, and remediate malicious software, including viruses, trojans, ransomware, and spyware. These solutions continuously monitor endpoints and systems for known malicious patterns and suspicious behaviors that indicate compromise. Antivirus/Antimalware software should be deployed across all devices, with automated updates to ensure protection against the latest threats. This mitigation can be implemented through the following measures:",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Common tools for detecting Linux rootkits include: rkhunter [1], chrootkit [2], although rootkits may be designed to evade certain detection tools.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Anti-virus can be used to automatically detect and quarantine suspicious files. Consider utilizing the Antimalware Scan Interface (AMSI) on Windows 10+ to analyze commands after being processed/interpreted. [4]",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Employ heuristic-based malware detection. Ensure updated virus definitions and create custom signatures for observed malware.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Consider utilizing the Antimalware Scan Interface (AMSI) on Windows 10+ to analyze commands after being processed/interpreted.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Anti-virus can be used to automatically detect and quarantine suspicious files, including those with high entropy measurements or with otherwise potentially malicious signs of obfuscation.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Anti-virus can be used to automatically detect and quarantine suspicious files. Employment of advanced anti-malware techniques that make use of technologies like machine learning and behavior-based mechanisms to conduct signature-less malware detection will also be more effective than traditional indicator-based detection methods.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Anti-virus can be used to automatically detect and quarantine suspicious files. Consider anti-virus products capable of unpacking and inspecting compressed files recursively, as well as analyzing SFX archives.",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Anti-virus can be used to automatically detect and quarantine suspicious files. Behavior-based detections, rather than reliance on static code analysis, may help to identify malicious files that rely heavily on junk code.[5]",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Network/Host intrusion prevention systems, antivirus, and detonation chambers can be employed to prevent documents from fetching and/or executing malicious payloads.[7]",
+    "source": "MITRE ATT&CK M1049 Antivirus (Scraped)",
+    "topic": "mitre_scraped_antivirus"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that can identify traffic patterns indicative of AiTM activity can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that can identify traffic patterns indicative of AiTM activity can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that can identify traffic patterns indicative of AiTM activity can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that can identify traffic patterns indicative of AiTM activity can be used to mitigate activity at the network level.[1]",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Wireless intrusion prevention systems (WIPS) can identify traffic patterns indicative of adversary-in-the-middle activity and scan for evils twins and rogue access points.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Network intrusion detection and prevention systems that use network signatures to identify traffic for specific adversary malware can be used to mitigate activity at the network level.",
+    "source": "MITRE ATT&CK M1031 Network IPS (Scraped)",
+    "topic": "mitre_scraped_nips"
+  },
+  {
+    "text": "Software configuration refers to making security-focused adjustments to the settings of applications, middleware, databases, or other software to mitigate potential threats. These changes help reduce the attack surface, enforce best practices, and protect sensitive data. This mitigation can be implemented through the following measures:",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Where possible, consider enforcing the use of container services in rootless mode to limit the possibility of privilege escalation or malicious effects on the host running the container.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Where possible, consider enforcing the use of container services in rootless mode to limit the possibility of privilege escalation or malicious effects on the host running the container.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider re-locking password managers after a short timeout to limit the time plaintext credentials live in memory from decrypted databases.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider implementing data retention policies to automate periodically archiving and/or deleting data that is no longer needed.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider implementing data retention policies to automate periodically archiving and/or deleting data that is no longer needed.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider implementing data retention policies to automate periodically archiving and/or deleting data that is no longer needed.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider automatically relaunching forwarding mechanisms at recurring intervals (ex: temporal, on-logon, etc.) as well as applying appropriate change management to firewall rules and other related system configurations.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Consider implementing policies on internal web servers, such HTTP Strict Transport Security, that enforce the use of HTTPS/network traffic encryption to prevent insecure connections.[3]",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Use anti-spoofing and email authentication mechanisms to filter messages based on validity checks of the sender domain (using SPF) and integrity of messages (using DKIM). Enabling these mechanisms within an organization (through policies such as DMARC) may enable recipients (intra-org and cross domain) to perform similar message filtering and validation.[4][5] Note that additional filtering may be necessary if emails are coming from legitimate sources.",
+    "source": "MITRE ATT&CK M1054 Software Config (Scraped)",
+    "topic": "mitre_scraped_config"
+  },
+  {
+    "text": "Secure .gov websites use HTTPS A lock ( Lock A locked padlock ) or https:// means you\u2019ve safely connected to the .gov website. Share sensitive information only on official, secure websites.",
+    "source": "NIST Cybersecurity (Scraped)",
+    "topic": "nist_scraped_cyber"
+  },
+  {
+    "text": "Our cybersecurity and privacy work is driven by the needs of U.S. industry and the broader public \u2014 and is sometimes defined by federal statutes, executive orders, and policies. NIST also advances the understanding and improves the management of privacy risks \u2014 some of which relate directly to cybersecurity.",
+    "source": "NIST Cybersecurity (Scraped)",
+    "topic": "nist_scraped_cyber"
+  },
+  {
+    "text": "We engage vigorously with stakeholders to set priorities and ensure that our resources address key issues that they face. Priority areas to which NIST contributes include:",
+    "source": "NIST Cybersecurity (Scraped)",
+    "topic": "nist_scraped_cyber"
+  },
+  {
+    "text": "The President\u2019s Executive Order (EO) on Sustaining Select Efforts to Strengthen the Nation\u2019s Cybersecurity and Amending Executive Order 13694 and Executive Order 14144 issued on June 6, 2025, charges multiple agencies \u2013 including NIST \u2013 to strengthen the nation\u2019s cybersecurity by focusing on critical protections against foreign cyber threats and enhancing secure technology practices. Learn more about NIST responsibilities outlined in the EO.",
+    "source": "NIST Cybersecurity (Scraped)",
+    "topic": "nist_scraped_cyber"
+  },
+  {
+    "text": "Clone phishing involves creating a near-identical replica of a previously delivered legitimate email, replacing the original attachment or link with a malicious version. The attacker spoofs the sender address to appear as the original sender and claims the email is an updated or corrected version. Clone phishing is particularly effective because the recipient has already seen and trusted the original email content. Organisations should train users to verify unexpected follow-up emails by contacting the sender directly through a known communication channel. Detection can be improved by implementing email thread analysis tools that flag modified re-sent messages.",
+    "source": "NIST SP 800-61 Rev. 2 / Phishing Sub-types",
+    "topic": "clone_phishing"
+  },
+  {
+    "text": "Whaling attacks are a specialised form of spear-phishing that specifically targets senior executives and high-value individuals within an organisation. These attacks often impersonate other executives, board members, or external authorities such as legal counsel or regulatory agencies. Whaling emails typically involve requests for large financial transfers, sensitive corporate data, or actions requiring executive authority. The high-profile nature of the targets means a single successful whaling attack can result in millions of dollars in losses. Defence requires executive-specific training and enhanced verification procedures for high-value requests.",
+    "source": "FBI IC3 Report / Executive Phishing Guidelines",
+    "topic": "whaling"
+  },
+  {
+    "text": "Angler phishing exploits social media platforms by creating fake customer support accounts that impersonate legitimate brands. When users post complaints or questions on social media, the attacker responds from the fake support account, directing victims to phishing sites disguised as support portals. This technique exploits the expectation of customer service interaction on social media. Organisations should register and verify their official social media accounts and monitor for impersonation attempts. Customers should be educated to only interact with verified accounts marked with platform verification badges.",
+    "source": "APWG Report 2023 / Social Media Security",
+    "topic": "angler_phishing"
+  },
+  {
+    "text": "Pharming attacks redirect users from legitimate websites to fraudulent ones by exploiting DNS vulnerabilities or modifying the hosts file on a victim's computer. Unlike traditional phishing that requires the user to click a malicious link, pharming can redirect traffic transparently without any user action. DNS cache poisoning is a common pharming technique where the attacker corrupts the DNS cache of a resolver, causing it to return incorrect IP addresses. Organisations should implement DNSSEC to protect against DNS poisoning and monitor for unauthorised changes to DNS configurations.",
+    "source": "NIST SP 800-81 / DNS Security Guidelines",
+    "topic": "pharming"
+  },
+  {
+    "text": "Consent phishing targets OAuth and similar authorisation flows by tricking users into granting permissions to malicious applications. The attacker creates a legitimate-looking application that requests broad permissions such as reading email or accessing files through the standard consent dialog. Once authorised, the malicious application can access the user's data without needing their password. These attacks are growing in prevalence because they bypass MFA entirely. Organisations should implement application consent policies that require admin approval for third-party applications requesting sensitive permissions.",
+    "source": "Microsoft Security Advisory / OAuth Best Practices",
+    "topic": "consent_phishing"
+  },
+  {
+    "text": "Callback phishing also known as telephone-oriented attack delivery or TOAD begins with an email that contains no malicious links or attachments. Instead it includes a phone number and a pretext such as an upcoming subscription charge that motivates the recipient to call. When the victim calls, the attacker guides them through installing remote access software or visiting a malicious site. This technique evades all email-based security controls because the email itself is benign. Organisations need to train users that unexpected callback requests in emails are a known attack vector.",
+    "source": "CrowdStrike Threat Report 2024 / Emerging Vectors",
+    "topic": "callback_phishing"
+  },
+  {
+    "text": "Lateral phishing occurs when an attacker who has already compromised one email account within an organisation uses that account to send phishing emails to other employees. Because the phishing email comes from a legitimate internal account, it bypasses external email security controls and is more likely to be trusted by recipients. Detecting lateral phishing requires monitoring internal email traffic for anomalous patterns, implementing internal email authentication, and using behavioural analytics to identify compromised accounts based on sending patterns, volume, and content changes.",
+    "source": "Microsoft Digital Defense Report 2024",
+    "topic": "lateral_phishing"
+  },
+  {
+    "text": "Watering hole attacks target specific groups by compromising websites that the group is known to visit frequently. The attacker identifies websites commonly used by the target organisation or industry, compromises those sites by injecting malicious code, and waits for targets to visit. When a target visits the compromised site, the malicious code executes, potentially installing malware or redirecting to a credential harvesting page. This technique is particularly effective against organisations with strong email security because it bypasses the email vector entirely.",
+    "source": "MITRE ATT&CK T1189 / Drive-by Compromise",
+    "topic": "watering_hole"
+  },
+  {
+    "text": "Search engine phishing involves creating malicious websites optimised to appear in search engine results for commonly searched terms. When users search for topics like password reset, software downloads, or customer support numbers, they may click on a malicious result that leads to a credential harvesting page or malware download. Attackers use SEO techniques and paid advertisements to push their malicious pages to the top of search results. Organisations should educate users to verify website authenticity before entering credentials and maintain bookmarks for frequently accessed internal and external services.",
+    "source": "CISA Advisory / Search Engine Security",
+    "topic": "search_engine_phishing"
+  },
+  {
+    "text": "Evil twin attacks create fraudulent Wi-Fi access points that mimic legitimate networks. When users connect to the malicious access point, the attacker can intercept all network traffic including credentials entered on websites. Modern evil twin attacks combine Wi-Fi interception with real-time phishing by injecting credential harvesting pages into the user's browsing session. Defence includes using VPNs for all remote connections, implementing 802.1X network authentication, training users to verify network names before connecting, and deploying wireless intrusion detection systems.",
+    "source": "NIST SP 800-153 / Wireless Security Guidelines",
+    "topic": "evil_twin"
+  },
+  {
+    "text": "Deepfake phishing leverages AI-generated audio and video to impersonate trusted individuals in real-time. Attackers use voice cloning technology to create convincing phone calls that sound exactly like a CEO or CFO, requesting urgent wire transfers or sensitive data. Video deepfakes can be used in video conferences to impersonate executives who are supposedly joining remotely. Defence against deepfake phishing requires out-of-band verification procedures for high-value requests, establishment of code words or challenge-response protocols, and awareness training about deepfake capabilities.",
+    "source": "FBI Advisory 2024 / AI-Enabled Threats",
+    "topic": "deepfake_phishing"
+  },
+  {
+    "text": "Browser-in-the-browser attacks create a fake browser window within a legitimate browser tab to simulate a popup login dialog. The fake window appears identical to a real browser popup including the URL bar showing the correct domain name, making it extremely convincing. This technique is commonly used to phish credentials for services that use popup authentication windows like Google, Microsoft, and Apple. Defence includes training users to try dragging popup windows outside the browser boundary and implementing passwordless authentication methods that are not susceptible to this technique.",
+    "source": "CISA Web Security Advisory / Browser Attacks",
+    "topic": "browser_in_browser"
+  },
+  {
+    "text": "Man-in-the-middle phishing uses proxy servers to intercept communications between the victim and a legitimate website in real-time. When the victim enters credentials on the phishing site, the proxy forwards them to the real site and captures the session token, effectively bypassing two-factor authentication. Frameworks like Evilginx and Modlishka have made these attacks accessible to less sophisticated attackers. Phishing-resistant authentication methods like FIDO2 WebAuthn are the primary defence because they bind credentials to specific origins, preventing proxy-based interception.",
+    "source": "NIST SP 800-63B / Authentication Security",
+    "topic": "mitm_phishing"
+  },
+  {
+    "text": "Smishing attacks use SMS text messages to deliver phishing content. These messages typically impersonate banks, delivery services, or government agencies and contain links to credential harvesting sites. Smishing is effective because SMS messages have higher open rates than email, mobile screens make URL inspection difficult, and many mobile devices lack enterprise security controls. The rise of rich communication services (RCS) has introduced new smishing vectors. Organisations should deploy mobile threat defence solutions, implement SMS filtering where possible, and educate users about smishing indicators.",
+    "source": "CISA Mobile Security Advisory",
+    "topic": "smishing"
+  },
+  {
+    "text": "Vishing attacks use voice calls to extract sensitive information from victims. Attackers often spoof caller ID to appear as legitimate organisations and use social engineering techniques to create urgency. Modern vishing campaigns use AI-powered voice synthesis to clone voices of known contacts. VoIP technology enables attackers to make calls from any apparent number at minimal cost. Defence includes implementing callback verification procedures, registering organisational phone numbers with STIR/SHAKEN caller authentication, and training users to never provide credentials or authorise transactions during inbound calls.",
+    "source": "FBI IC3 Advisory / Voice Phishing Prevention",
+    "topic": "vishing"
+  },
+  {
+    "text": "Quishing attacks embed malicious QR codes in phishing emails, physical mail, or public spaces. When scanned with a mobile device, these codes redirect users to credential harvesting sites or trigger malware downloads. QR codes bypass most email security controls because they appear as images rather than URLs. The pandemic accelerated QR code adoption for menus, payments, and check-ins, increasing user trust in scanning unknown codes. Organisations should deploy QR code scanning capabilities in email security, educate users about quishing risks, and implement mobile device management with web filtering.",
+    "source": "Mandiant Threat Report 2024 / QR Code Attacks",
+    "topic": "quishing"
+  },
+  {
+    "text": "Adversary-in-the-middle phishing kits such as Evilginx and Modlishka act as transparent reverse proxies between the victim and the legitimate site. They relay all traffic in real-time, capturing credentials and session cookies as they pass through. This defeats traditional MFA because the attacker captures the authenticated session after the user completes the MFA challenge. These kits are freely available on GitHub and require minimal technical expertise to deploy. The only reliable defence is phishing-resistant MFA using FIDO2 security keys or platform authenticators that verify the origin domain.",
+    "source": "Microsoft Security Blog / AITM Phishing Analysis",
+    "topic": "aitm_kits"
+  },
+  {
+    "text": "Polymorphic phishing uses automated tools to generate unique variations of phishing emails for each recipient, changing subject lines, sender names, URL patterns, and email body text. This defeats signature-based detection that relies on matching known phishing templates. Some polymorphic phishing campaigns use generative AI to produce thousands of unique email variants in minutes. Defence requires behaviour-based detection that analyses email patterns rather than content, sender reputation scoring, and anomaly detection that identifies unusual communication patterns regardless of specific message content.",
+    "source": "IBM X-Force Threat Intelligence Index 2024",
+    "topic": "polymorphic_phishing"
+  },
+  {
+    "text": "Configuring SPF records correctly requires listing all legitimate sending sources for a domain. The SPF record is published as a DNS TXT record and should include the organisation's mail servers, any third-party email services such as marketing platforms or CRM systems, and cloud email providers. The record should end with '-all' (hard fail) rather than '~all' (soft fail) to instruct receiving servers to reject emails from unauthorised senders. Common mistakes include exceeding the 10 DNS lookup limit, forgetting to include third-party sending services, and using overly permissive mechanisms like 'include' for broad IP ranges.",
+    "source": "CISA Email Authentication Guide / RFC 7208",
+    "topic": "spf_implementation"
+  },
+  {
+    "text": "DKIM implementation involves generating a public-private key pair, publishing the public key in DNS, and configuring the mail server to sign outgoing messages with the private key. The recommended key length is 2048 bits for adequate security. Organisations should rotate DKIM keys at least annually and maintain the ability to sign with both old and new keys during the transition period. DKIM selectors should be unique per service to enable independent key management for different sending systems. Proper DKIM implementation prevents attackers from modifying email content in transit without detection.",
+    "source": "CISA Email Authentication Guide / RFC 6376",
+    "topic": "dkim_implementation"
+  },
+  {
+    "text": "DMARC deployment should follow a phased approach to avoid disrupting legitimate email delivery. Start with a monitoring policy (p=none) to collect reports about email authentication results. Analyse DMARC aggregate reports (RUA) to identify all legitimate sending sources and ensure they are properly authenticated with SPF and DKIM. Once authentication coverage is complete, move to a quarantine policy (p=quarantine) to redirect failing emails to spam. After confirming no legitimate emails are being affected, deploy a reject policy (p=reject) for maximum protection against domain spoofing.",
+    "source": "CISA Email Authentication Guide / DMARC Best Practices",
+    "topic": "dmarc_implementation"
+  },
+  {
+    "text": "Email gateway configuration for phishing prevention involves multiple layers of filtering. Inbound policies should scan all attachments using multiple antivirus engines, detonate suspicious files in a sandbox environment, rewrite URLs to route through a scanning proxy, flag emails from first-time external senders, and add visual banners to emails originating from outside the organisation. Outbound policies should prevent data exfiltration by scanning for sensitive content patterns such as credit card numbers and proprietary data, and blocking emails to known malicious destinations.",
+    "source": "NIST SP 800-53 Rev. 5 / Email Gateway Configuration",
+    "topic": "email_gateway_config"
+  },
+  {
+    "text": "Endpoint detection and response (EDR) solutions complement email security by providing a second layer of defence when phishing payloads reach endpoints. EDR can detect and block malicious processes spawned by phishing attachments, such as macro-enabled documents launching PowerShell commands. Behavioural detection capabilities can identify suspicious activities like credential dumping, lateral movement, or data staging that follow a successful phishing compromise. EDR telemetry should be integrated with the SIEM to correlate endpoint events with email security alerts for faster incident detection.",
+    "source": "CrowdStrike / NIST SP 800-53 Rev. 5",
+    "topic": "edr_integration"
+  },
+  {
+    "text": "Network segmentation reduces the impact of successful phishing attacks by limiting lateral movement. If an attacker compromises a user's workstation through phishing, network segmentation prevents them from directly accessing sensitive systems such as database servers, domain controllers, or financial systems. Micro-segmentation can enforce granular access policies at the workstation level. Organisations should implement network segmentation in conjunction with Zero Trust principles to ensure that compromised endpoints cannot pivot to critical infrastructure.",
+    "source": "NIST SP 800-207 / Network Security Best Practices",
+    "topic": "network_segmentation"
+  },
+  {
+    "text": "Web content filtering and secure web gateway solutions provide an additional layer of phishing protection by inspecting web traffic for malicious content. Secure web gateways can block access to known phishing sites, scan downloaded files for malware, and enforce acceptable use policies. SSL/TLS inspection enables the proxy to examine encrypted web traffic for threats that would otherwise be hidden. Cloud-based SWG solutions extend protection to remote workers who may not be connected to the corporate network, ensuring consistent policy enforcement regardless of location.",
+    "source": "CISA Web Security Guidelines / Proxy Configuration",
+    "topic": "web_filtering"
+  },
+  {
+    "text": "Privileged account protection is especially critical in the context of phishing because compromised privileged accounts give attackers immediate access to sensitive systems and data. Organisations should implement dedicated privileged access workstations (PAWs) that are hardened and isolated from general email and web browsing. Privileged accounts should never be used for email or web browsing. Time-limited just-in-time privilege elevation should be used instead of standing privileges. All privileged account activity should be logged, monitored, and alerted on for anomalies.",
+    "source": "NIST SP 800-53 Rev. 5 / Privileged Access Management",
+    "topic": "privileged_access"
+  },
+  {
+    "text": "URL sandboxing and time-of-click analysis provide protection against deferred phishing attacks where URLs are benign at delivery time but become malicious later. Traditional URL scanning only checks the link when the email is received, but attackers can activate the phishing page after the email passes security checks. Time-of-click solutions re-scan URLs each time a user clicks on them, providing real-time protection. URL rewriting services replace original links with proxy URLs that redirect through the security scanning service before reaching the destination.",
+    "source": "Proofpoint / Mimecast Security Guidelines",
+    "topic": "url_sandboxing"
+  },
+  {
+    "text": "Data Loss Prevention (DLP) policies should be configured to detect and prevent the exfiltration of sensitive data following a successful phishing attack. DLP rules should monitor for patterns including bulk email forwarding to external addresses, large file downloads from sensitive repositories, clipboard operations involving sensitive data, and printing of confidential documents. Integration between DLP and email security enables correlation between phishing attempts and subsequent data movement, helping to identify compromised accounts before significant data loss occurs.",
+    "source": "NIST SP 800-53 Rev. 5 / Data Protection Controls",
+    "topic": "dlp_policies"
+  },
+  {
+    "text": "Security Information and Event Management (SIEM) integration with email security enables comprehensive phishing detection and response. SIEM rules should be configured to alert on patterns such as multiple users receiving similar suspicious emails, a single account sending login requests from multiple geographic locations shortly after receiving phishing, sudden spikes in failed authentication, and email forwarding rule changes. Automated SOAR playbooks can quarantine suspicious emails, reset compromised credentials, and isolate affected endpoints without manual intervention.",
+    "source": "NIST SP 800-53 Rev. 5 / Security Operations",
+    "topic": "siem_integration_detail"
+  },
+  {
+    "text": "Cloud Access Security Broker (CASB) solutions extend phishing protection to cloud applications. CASBs can detect when credentials stolen through phishing are used to access cloud services from unusual locations or devices. They can enforce conditional access policies that require step-up authentication for sensitive operations. CASBs also monitor for signs of account takeover such as mass file downloads, permission changes, or creation of OAuth applications. Integration between the CASB and the identity provider enables real-time risk assessment and automated response to suspicious cloud activity.",
+    "source": "Gartner CASB Framework / Cloud Security Alliance",
+    "topic": "casb_protection"
+  },
+  {
+    "text": "Email encryption using S/MIME or PGP provides authentication that can help users distinguish legitimate internal emails from phishing attempts. When employees digitally sign their emails, recipients can verify the sender's identity through the certificate chain. This creates a visual indicator in the email client showing whether the message was signed by a verified internal sender. While email encryption does not prevent phishing directly, it provides an additional trust signal that users can use to identify potentially fraudulent messages.",
+    "source": "NIST SP 800-177 / Email Security Guidelines",
+    "topic": "email_encryption"
+  },
+  {
+    "text": "Honeypot email accounts and canary tokens can serve as early warning systems for phishing campaigns targeting the organisation. Honeypot accounts are email addresses that appear legitimate but are not used by real employees. Any email received by these accounts is suspicious by definition. Canary tokens are unique URLs or files embedded in internal documents. If a phishing attacker gains access to internal systems and accesses these tokens, the security team is immediately alerted. These deception-based techniques complement traditional detection methods.",
+    "source": "SANS Institute / Deception Technology Guide",
+    "topic": "honeypot_detection"
+  },
+  {
+    "text": "Mobile Device Management (MDM) solutions are essential for protecting against mobile phishing attacks. MDM can enforce security policies including requiring device encryption, blocking installation of unverified applications, filtering web traffic through a secure gateway, and enabling remote wipe capabilities for compromised devices. MDM solutions should integrate with mobile threat defence (MTD) products that can detect phishing URLs in SMS messages, messaging apps, and social media. Bring-your-own-device (BYOD) policies should mandate minimum security requirements including MDM enrollment.",
+    "source": "NIST SP 800-124 / Mobile Device Security",
+    "topic": "mdm_protection"
+  },
+  {
+    "text": "Anti-spoofing controls at the network perimeter help prevent phishing emails from reaching users. These include implementing ingress filtering to block emails claiming to come from internal domains but arriving from external sources, configuring mail transfer agents to verify HELO/EHLO hostnames, implementing rate limiting for incoming email connections, and deploying reputation-based filtering that scores senders based on historical behaviour. These controls complement email authentication protocols by catching spoofing attempts that do not rely on domain impersonation.",
+    "source": "NIST SP 800-45 / Email Server Security",
+    "topic": "anti_spoofing"
+  },
+  {
+    "text": "Threat intelligence platform (TIP) integration provides proactive phishing defence by consuming and operationalising indicators of compromise from multiple sources. TIPs aggregate feeds from commercial providers, open-source intelligence (OSINT) sources like PhishTank and OpenPhish, industry ISACs, and government feeds from CISA. Automated integration with email security gateways enables real-time blocking of known phishing infrastructure. TIPs also support threat hunting by enabling analysts to search for historical indicators across email logs and endpoint telemetry.",
+    "source": "MITRE ATT&CK / Threat Intelligence Best Practices",
+    "topic": "tip_integration"
+  },
+  {
+    "text": "Browser isolation technology renders web content in a remote container rather than on the user's local machine, providing protection even if the user clicks on a phishing link. When a user navigates to a potentially malicious site, the content is rendered in a cloud-based disposable browser instance and streamed to the user's screen as pixels. Any malicious code executes in the isolated container and cannot reach the user's device. Browser isolation can be applied selectively based on URL categories, risk scores, or when users click links in emails.",
+    "source": "Gartner / Browser Isolation Technology Guide",
+    "topic": "browser_isolation"
+  },
+  {
+    "text": "Password policy and credential management directly impact phishing resilience. Organisations should enforce unique passwords for every service to limit the impact of credential theft. Enterprise password managers auto-fill credentials only on the correct domain, providing passive phishing protection. When a user navigates to a phishing site, the password manager will not recognise the domain and will not offer to fill credentials, providing a visual warning. Organisations should mandate password manager usage and prohibit credential sharing through email or messaging platforms.",
+    "source": "NIST SP 800-63B / Credential Management",
+    "topic": "password_policy"
+  },
+  {
+    "text": "Automated phishing response orchestration (SOAR) enables rapid containment of phishing incidents at scale. When a phishing email is confirmed, SOAR playbooks can automatically search for and quarantine all copies of the email across the organisation, extract and block malicious URLs and sender addresses, identify users who clicked the phishing link, force password resets for affected accounts, isolate compromised endpoints from the network, and create an incident ticket with all relevant details. This automation reduces response time from hours to minutes.",
+    "source": "Gartner SOAR Framework / Incident Response Automation",
+    "topic": "soar_response"
+  },
+  {
+    "text": "Healthcare organisations face unique phishing risks due to the high value of protected health information (PHI) and the time-critical nature of medical work. Phishing attacks targeting healthcare often exploit urgency such as impersonating hospital administrators during emergencies and the reluctance of clinical staff to delay patient care for security procedures. HIPAA requires covered entities to implement security awareness training and access controls. Healthcare organisations should implement role-based email policies with stricter controls for accounts with access to electronic health records systems. Medical devices connected to the network should be segmented from email systems.",
+    "source": "HHS Cybersecurity Advisory / HIPAA Security Rule",
+    "topic": "healthcare_phishing"
+  },
+  {
+    "text": "Financial services organisations are the most targeted sector for phishing, accounting for 27.8% of all phishing attacks according to APWG. Regulatory requirements including SOX, PCI DSS, and GLBA mandate specific controls for protecting customer financial data. Financial institutions should implement transaction verification procedures for high-value transfers such as callback confirmation through a registered phone number, deploy advanced email analytics that detect BEC patterns, maintain real-time fraud monitoring that flags suspicious account activity following potential credential compromise, and implement customer-facing anti-phishing measures.",
+    "source": "APWG Report 2023 / PCI DSS / GLBA Guidelines",
+    "topic": "financial_phishing"
+  },
+  {
+    "text": "Educational institutions are increasingly targeted by phishing campaigns that exploit the open communication culture of academic environments. University email systems handle high volumes of legitimate emails from diverse senders, making it harder to distinguish phishing attempts. Common attack vectors include fake scholarship notifications, fraudulent job offers targeting students, impersonation of university administrators, and fake tuition payment portals. Educational institutions should implement conditional access policies requiring MFA for sensitive systems such as student information systems and financial aid portals.",
+    "source": "EDUCAUSE Cybersecurity Guidelines / ACSC Advisory",
+    "topic": "education_phishing"
+  },
+  {
+    "text": "Government agencies face sophisticated phishing threats from nation-state actors conducting espionage operations. These Advanced Persistent Threat groups use highly targeted spear-phishing campaigns that may involve months of reconnaissance. Government phishing defences must comply with frameworks such as NIST 800-171 and the CMMC. Agencies should implement domain-based message authentication at reject policy, use government-specific threat intelligence feeds from CISA, enforce PIV or CAC card-based authentication that is inherently phishing-resistant, and participate in cross-agency threat information sharing.",
+    "source": "CISA Federal Directive / NIST SP 800-171",
+    "topic": "government_phishing"
+  },
+  {
+    "text": "Small businesses often lack dedicated IT security staff, making them particularly vulnerable to phishing attacks. According to the ACSC, small businesses should prioritise cost-effective controls including enabling MFA on all email and cloud accounts at no additional cost from most providers, enabling built-in phishing protection in Microsoft 365 or Google Workspace, configuring DMARC at minimum quarantine policy, conducting quarterly training using free CISA and ACSC resources, and establishing a simple incident response procedure documenting who to call and what to do if a suspicious link is clicked.",
+    "source": "ACSC Small Business Guide / CISA SME Toolkit",
+    "topic": "small_business_phishing"
+  },
+  {
+    "text": "The legal sector faces targeted phishing attacks that exploit the urgency and confidentiality of legal proceedings. Attackers impersonate judges, opposing counsel, or court systems to send fraudulent documents or requests. Law firms handle highly sensitive client data protected by attorney-client privilege, making data breaches particularly damaging. The American Bar Association's formal ethics opinions require lawyers to make reasonable efforts to prevent unauthorised access to client information. Legal organisations should implement client matter-based access controls and encrypted communication channels for sensitive correspondence.",
+    "source": "ABA Cybersecurity Guidelines / Legal Sector Advisory",
+    "topic": "legal_phishing"
+  },
+  {
+    "text": "The energy and utilities sector faces phishing threats that could impact critical infrastructure and operational technology systems. Attackers target employees with access to industrial control systems (ICS) and supervisory control and data acquisition (SCADA) networks. A successful phishing attack could provide initial access for attacks on power grids, water treatment facilities, or oil and gas operations. The North American Electric Reliability Corporation Critical Infrastructure Protection (NERC CIP) standards mandate specific cybersecurity controls. Energy organisations should maintain strict air-gapping between IT and OT networks.",
+    "source": "NERC CIP Standards / ICS-CERT Advisory",
+    "topic": "energy_phishing"
+  },
+  {
+    "text": "The retail and e-commerce sector experiences high volumes of phishing targeting both employees and customers. Employee-targeted phishing often aims to compromise point-of-sale systems or customer databases. Customer-targeted phishing impersonates major retailers with fake order confirmations, delivery notifications, and account security alerts. Seasonal spikes in phishing activity correlate with major shopping events like Black Friday and holiday seasons. Retailers should implement customer-facing anti-phishing education, use branded indicators in emails such as BIMI, and deploy real-time transaction monitoring.",
+    "source": "PCI DSS Guidelines / Retail Cybersecurity Framework",
+    "topic": "retail_phishing"
+  },
+  {
+    "text": "The manufacturing sector is increasingly targeted by phishing as a vector for ransomware and industrial espionage. Attackers target engineers and operations staff to gain access to intellectual property, trade secrets, and production systems. Manufacturing phishing campaigns often impersonate suppliers, shipping companies, or equipment vendors with fake invoices, shipping notifications, or technical documentation. The convergence of IT and OT networks in Industry 4.0 environments increases the potential impact. Manufacturers should implement supply chain verification procedures and segment production networks from corporate email.",
+    "source": "CISA Manufacturing Sector Advisory / NIST MEP",
+    "topic": "manufacturing_phishing"
+  },
+  {
+    "text": "Non-profit organisations and NGOs face phishing threats with limited cybersecurity budgets and resources. Attackers target non-profits to gain access to donor information, financial data, and sensitive programme data. Phishing campaigns may impersonate major donors, grant-making bodies, or partner organisations. Non-profits operating in conflict zones face additional risks from state-sponsored actors targeting their communications. Free and low-cost security tools such as Google Workspace for Non-profits, Cloudflare Project Galileo, and TechSoup discounted security software can help non-profits implement basic phishing defences.",
+    "source": "CIS Controls for NGOs / Non-Profit Cybersecurity Guide",
+    "topic": "nonprofit_phishing"
+  },
+  {
+    "text": "The SOC analyst plays a frontline role in phishing incident response. Upon receiving a reported phishing email, the SOC analyst should perform initial triage by examining email headers, checking the sender against known threat intelligence feeds, and scanning any URLs or attachments in a sandbox environment. The analyst should classify incident severity based on factors such as the number of recipients, whether users clicked links or opened attachments, and whether credential compromise is suspected. High-severity incidents should be escalated to the incident response team lead with all collected evidence.",
+    "source": "NIST SP 800-61 Rev. 2 / SOC Operations Guide",
+    "topic": "ir_soc_analyst"
+  },
+  {
+    "text": "The IT administrator's role in phishing incident response focuses on containment and remediation. Key actions include blocking the sender domain at the email gateway, adding malicious URLs to the web proxy block list, searching email logs to identify all recipients of the phishing email, purging the malicious email from all mailboxes using administrative tools such as Exchange compliance search or Google Vault, resetting passwords for users who interacted with the phishing email, revoking active sessions and OAuth tokens for compromised accounts, and reviewing authentication logs for signs of account compromise.",
+    "source": "NIST SP 800-61 Rev. 2 / IT Operations Guide",
+    "topic": "ir_it_admin"
+  },
+  {
+    "text": "The communications team plays a critical role in phishing incident response by managing internal and external notifications. Internal communications should inform all staff about the phishing campaign, describe the indicators to look for, and provide clear instructions on what to do if they received the email. For high-severity incidents involving data breaches, the communications team must coordinate with legal counsel to determine regulatory notification requirements, prepare public statements if needed, and manage media inquiries. Timely and transparent communication helps maintain trust and ensures staff know how to respond.",
+    "source": "NIST SP 800-61 Rev. 2 / Communications Planning",
+    "topic": "ir_communications"
+  },
+  {
+    "text": "Forensic analysis of phishing emails and associated infrastructure provides valuable intelligence for preventing future attacks. Analysts should extract and document all indicators of compromise including sender email addresses, IP addresses from email headers, URLs and domain names, file hashes of attachments, and email subject lines. These IOCs should be submitted to threat intelligence platforms such as VirusTotal and URLhaus and shared with the organisation's ISAC. Forensic analysis should determine whether the campaign is part of a larger targeted attack by examining whether the same infrastructure appears in other campaigns.",
+    "source": "SANS Forensics Guide / Threat Intelligence Procedures",
+    "topic": "ir_forensics"
+  },
+  {
+    "text": "The CISO's role during a phishing incident involves strategic oversight and decision-making. The CISO should be notified of high-severity phishing incidents and is responsible for deciding whether to activate the full incident response team, determining if external incident response firms need to be engaged, assessing regulatory notification requirements, communicating risk to the board and executive leadership, and authorising emergency security measures such as temporarily restricting email or internet access. The CISO should also lead the post-incident review to identify systemic improvements to the organisation's phishing defences.",
+    "source": "NIST Cybersecurity Framework / CISO Responsibilities",
+    "topic": "ir_ciso"
+  },
+  {
+    "text": "The legal team's role in phishing incident response involves assessing regulatory obligations, managing evidence preservation, and coordinating with law enforcement. Legal should determine if the incident triggers mandatory breach notification requirements under regulations such as GDPR, CCPA, HIPAA, or the Australian Privacy Act. They should ensure that all evidence is preserved in a forensically sound manner for potential litigation or law enforcement investigation. Legal should also assess whether the organisation's cyber insurance policy covers the incident and coordinate the claims process if applicable.",
+    "source": "Legal Incident Response Framework / Privacy Regulations",
+    "topic": "ir_legal"
+  },
+  {
+    "text": "The HR department's role in phishing incident response relates to insider threat assessment and employee support. HR should be involved when there is suspicion that the phishing attack may have been facilitated by an insider, whether intentionally or through negligence. HR should also manage any disciplinary considerations arising from the incident, though best practices recommend focusing on additional training rather than punishment for employees who fell for phishing. HR can also support affected employees who may experience stress or anxiety following a phishing incident, particularly if personal data was compromised.",
+    "source": "HR Incident Response Guidelines / Employee Support",
+    "topic": "ir_hr"
+  },
+  {
+    "text": "Third-party and vendor management during phishing incidents is critical when the attack involves supply chain compromise. The vendor management team should immediately contact the compromised vendor to confirm the breach, assess the scope of data potentially exposed through the vendor relationship, review and potentially revoke vendor access to organisational systems, evaluate whether other vendors may be affected by the same campaign, and update vendor risk assessments based on the incident. Contracts should include incident notification requirements specifying that vendors must report security incidents within a defined timeframe.",
+    "source": "NIST Supply Chain Risk Management / Vendor Security",
+    "topic": "ir_vendor_mgmt"
+  },
+  {
+    "text": "Research in behavioural psychology has identified several cognitive biases that make humans susceptible to phishing. Authority bias causes people to comply with requests from perceived authority figures such as impersonated executives. Urgency bias drives people to act quickly when threatened with negative consequences such as account suspension. Reciprocity bias makes people more likely to respond to perceived favours or rewards. Curiosity drives people to click on intriguing or unexpected content. Social proof bias leads people to follow actions they believe others have taken. Effective training should explicitly address these biases and help users recognise when they are being exploited.",
+    "source": "SANS Security Awareness / Behavioural Psychology Research",
+    "topic": "cognitive_biases"
+  },
+  {
+    "text": "The reporting culture within an organisation significantly impacts phishing resilience. Organisations where employees feel safe reporting suspicious emails and potential mistakes including clicking on phishing links detect and contain incidents faster. Building a positive reporting culture requires clearly communicating that reporting is valued and expected, removing punitive consequences for falling for phishing including simulations, providing positive reinforcement when users report genuine phishing, sharing anonymised statistics about threats detected through reports, and integrating a one-click reporting button into the email client.",
+    "source": "SANS Institute / Organisational Security Culture Research",
+    "topic": "reporting_culture"
+  },
+  {
+    "text": "Measuring the effectiveness of phishing awareness programs requires tracking multiple metrics over time. Key metrics include phishing simulation click rate representing the percentage of users who click, reporting rate indicating users who report suspicious emails, time to report measuring how quickly users flag suspicious emails, susceptibility by department identifying groups needing targeted training, repeat offender rate tracking users who fail multiple simulations, and actual phishing incident rate. Organisations should set measurable improvement targets and report progress to leadership quarterly.",
+    "source": "SANS Security Awareness Maturity Model",
+    "topic": "awareness_metrics"
+  },
+  {
+    "text": "Tailored security awareness training is more effective than generic approaches. Different roles face different phishing risks and executives are targeted by whaling and BEC, finance teams by invoice fraud, HR by fake job application phishing, and IT staff by credential harvesting attacks targeting admin accounts. Training content should be customised for each role using examples relevant to daily work. Delivery methods should vary to maintain engagement and should include interactive modules, short videos, in-person workshops, newsletter tips, and simulated phishing exercises as part of a comprehensive program.",
+    "source": "NIST SP 800-50 / Security Awareness Training Best Practices",
+    "topic": "tailored_training"
+  },
+  {
+    "text": "Phishing fatigue is a growing concern in organisations that run frequent simulated phishing exercises. When employees receive too many simulations, they may become desensitised and stop reporting suspicious emails altogether, treating every unexpected email as a potential simulation rather than a real threat. Research suggests that monthly simulations are optimal and more frequent testing leads to diminishing returns. Simulations should be varied in difficulty and type, with some being easy to identify and others more sophisticated, to maintain engagement and provide learning opportunities at all skill levels.",
+    "source": "Human Factors in Cybersecurity Journal / Training Research",
+    "topic": "phishing_fatigue"
+  },
+  {
+    "text": "Security champion programs designate volunteer employees in each department to serve as local security advocates. These champions receive advanced security training and act as the first point of contact for their colleagues when they receive suspicious emails. Security champions can provide peer-to-peer education that is often more effective than formal training because it comes from a trusted colleague rather than an authority figure. They can also provide the security team with insights into department-specific phishing risks and help tailor awareness content. Champions should be recognised and rewarded for their contribution.",
+    "source": "SANS Institute / Security Champion Program Guide",
+    "topic": "security_champions"
+  },
+  {
+    "text": "Gamification of phishing awareness training has shown positive results in improving user engagement and knowledge retention. Gamification elements include leaderboards showing department-level phishing reporting rates, achievement badges for completing training modules, interactive phishing identification challenges where users compete to identify phishing indicators, and rewards programs that recognise users who consistently report suspicious emails. Research indicates that gamified training approaches result in 40% higher engagement and 25% better knowledge retention compared to traditional training methods.",
+    "source": "Cybersecurity Training Research / Gamification Studies",
+    "topic": "gamification"
+  },
+  {
+    "text": "The concept of a human firewall recognises that technology alone cannot prevent all phishing attacks and that informed users serve as the last line of defence. Building an effective human firewall requires ongoing investment in security culture, regular communication about current threats, accessible reporting mechanisms, and leadership commitment to security awareness. The human firewall concept should be framed positively, emphasising that employees are security assets rather than liabilities. Organisations should celebrate successful phishing reports and share stories of employees who prevented incidents through vigilance.",
+    "source": "SANS Institute / Human Firewall Concept",
+    "topic": "human_firewall"
+  },
+  {
+    "text": "The Australian Cyber Security Centre Essential Eight includes email filtering as one of its eight essential mitigation strategies. The Essential Eight maturity model defines three levels of implementation for email security controls. Maturity Level 1 requires that emails from the internet are analysed by an email content filter. Maturity Level 2 adds requirements for blocking common malicious attachment types and implementing SPF/DKIM. Maturity Level 3 requires comprehensive email security including advanced threat protection, sandboxing, and DMARC with a reject policy. Australian organisations should assess their current maturity level and develop a roadmap to Level 3.",
+    "source": "ACSC Essential Eight Maturity Model",
+    "topic": "acsc_essential_eight"
+  },
+  {
+    "text": "The European Union's General Data Protection Regulation (GDPR) has significant implications for phishing incident response. Under GDPR Article 33, organisations must notify the supervisory authority within 72 hours of becoming aware of a personal data breach resulting from a phishing attack. Article 34 requires notification to affected individuals when the breach is likely to result in high risk to their rights and freedoms. Organisations must also document all breaches regardless of severity as part of their accountability obligations under Article 5(2). Failure to comply with breach notification requirements can result in fines of up to 10 million euros or 2% of global turnover.",
+    "source": "GDPR Articles 33-34 / Data Breach Notification",
+    "topic": "gdpr_compliance"
+  },
+  {
+    "text": "The Payment Card Industry Data Security Standard (PCI DSS) version 4.0 includes specific requirements relevant to phishing prevention for organisations that process card payments. Requirement 5.4 mandates anti-phishing mechanisms to detect and protect against phishing attacks. Requirement 12.6 requires security awareness training that includes awareness of threats and vulnerabilities that could impact the security of cardholder data. PCI DSS 4.0 also requires multi-factor authentication for all access to the cardholder data environment, which provides defence-in-depth against credential theft through phishing.",
+    "source": "PCI DSS v4.0 / Payment Security Standards",
+    "topic": "pci_dss_compliance"
+  },
+  {
+    "text": "ISO 27001:2022 includes several controls directly relevant to phishing prevention and response. Control A.6.3 (Information Security Awareness, Education and Training) requires organisations to implement security awareness programs that cover phishing recognition and reporting. Control A.8.7 (Protection Against Malware) requires technical controls to detect and prevent malware that may be delivered through phishing. Control A.5.24 (Information Security Incident Management Planning and Preparation) requires documented incident response procedures. Certification to ISO 27001 demonstrates a structured approach to phishing risk management to customers and partners.",
+    "source": "ISO 27001:2022 / Information Security Management",
+    "topic": "iso_27001_controls"
+  },
+  {
+    "text": "The California Consumer Privacy Act (CCPA) and its amendment the California Privacy Rights Act (CPRA) require businesses to implement reasonable security procedures to protect personal information. A phishing breach that exposes consumer personal information may constitute a violation of these requirements. The CCPA provides consumers with a private right of action for data breaches resulting from a business's failure to maintain reasonable security practices. Organisations should document their phishing prevention measures as evidence of reasonable security in the event of litigation following a phishing-related data breach.",
+    "source": "CCPA/CPRA / California Privacy Law",
+    "topic": "ccpa_compliance"
+  },
+  {
+    "text": "The Australian Privacy Act 1988 and the Notifiable Data Breaches (NDB) scheme require Australian organisations to notify the Office of the Australian Information Commissioner and affected individuals when a phishing attack results in unauthorised access to personal information that is likely to cause serious harm. The notification must include a description of the breach, the types of information involved, and recommendations for affected individuals. Organisations must complete their assessment within 30 days of becoming aware of the breach. The NDB scheme applies to organisations covered by the Privacy Act with annual turnover exceeding $3 million.",
+    "source": "Australian Privacy Act / NDB Scheme",
+    "topic": "australian_privacy"
+  },
+  {
+    "text": "NIST Cybersecurity Framework version 2.0 provides a structured approach to managing phishing risk across five functions. Identify includes understanding phishing risk in the context of the organisation's threat landscape. Protect includes implementing email security controls, access management, and awareness training. Detect includes monitoring for phishing indicators and anomalous account behaviour. Respond includes incident response procedures specific to phishing. Recover includes restoring affected systems and accounts and implementing improvements. The new Govern function in CSF 2.0 addresses organisational governance of cybersecurity risk including phishing.",
+    "source": "NIST Cybersecurity Framework v2.0",
+    "topic": "nist_csf_v2"
+  },
+  {
+    "text": "The Sarbanes-Oxley Act (SOX) requires public companies to maintain internal controls over financial reporting. Phishing attacks that compromise financial systems or lead to fraudulent transactions can create SOX compliance violations. SOX Section 404 requires management to assess and report on the effectiveness of internal controls, which should include email security and anti-phishing measures for personnel involved in financial reporting. Auditors evaluating SOX compliance may assess whether the organisation has adequate phishing defences as part of the IT general controls review.",
+    "source": "SOX Section 404 / Financial Controls",
+    "topic": "sox_compliance"
+  },
+  {
+    "text": "In 2020, a Twitter employee fell victim to a phone-based social engineering attack where attackers impersonated internal IT support and convinced the employee to provide access to internal tools. The attackers then used this access to take over high-profile accounts including those of Barack Obama, Elon Musk, and Apple to promote a cryptocurrency scam. The incident highlighted the effectiveness of vishing attacks even against technology companies with security expertise. Key lessons include implementing hardware-based authentication for access to internal tools, limiting the number of employees with access to sensitive systems, and establishing verification procedures for IT support requests.",
+    "source": "Case Study / Twitter Social Engineering Attack 2020",
+    "topic": "case_twitter"
+  },
+  {
+    "text": "The SolarWinds supply chain attack in 2020 began with a spear-phishing campaign that compromised a SolarWinds email account. The attackers used this initial access to eventually embed malicious code in the Orion software update, which was distributed to approximately 18,000 organisations. While the attack evolved beyond phishing, the initial vector demonstrates how a single successful spear-phishing email can lead to catastrophic supply chain compromise. This case underscores the importance of securing email accounts with phishing-resistant MFA and implementing continuous monitoring for anomalous email account behaviour.",
+    "source": "Case Study / SolarWinds Supply Chain Attack",
+    "topic": "case_solarwinds"
+  },
+  {
+    "text": "In 2021, a BEC attack against a European subsidiary of Toyota resulted in a loss of approximately $37 million. The attacker impersonated a senior executive and instructed a finance employee to transfer funds to a bank account controlled by the attacker. The employee followed the request because it appeared to come from a trusted authority figure and the request was framed as urgent and confidential. The incident demonstrates the devastating financial impact of BEC attacks and the need for mandatory dual-authorisation procedures for large financial transfers, regardless of the apparent sender's authority level.",
+    "source": "Case Study / Toyota BEC Attack 2021",
+    "topic": "case_toyota"
+  },
+  {
+    "text": "In the 2016 US presidential election campaign, a spear-phishing email impersonating Google security was sent to John Podesta, the campaign chairman. The email claimed his Google account password had been compromised and directed him to change it through a malicious link. Despite a staffer identifying the email as suspicious, a miscommunication led to Podesta clicking the link and entering his credentials. The attacker then accessed thousands of emails that were subsequently published. This case illustrates how even when phishing is detected, poor communication procedures can lead to compromise.",
+    "source": "Case Study / Podesta Email Compromise 2016",
+    "topic": "case_podesta"
+  },
+  {
+    "text": "In 2019, the city of Baltimore was hit by a ransomware attack that was initiated through a phishing email. The attack encrypted city government systems and disrupted services for weeks, costing an estimated $18.2 million in recovery expenses. The phishing email contained a malicious document that exploited an unpatched vulnerability to deploy the RobbinHood ransomware. The incident highlighted the connection between phishing and ransomware and the importance of prompt patching, email attachment sandboxing, and comprehensive backup procedures that enable recovery without paying ransom.",
+    "source": "Case Study / Baltimore Ransomware Attack 2019",
+    "topic": "case_baltimore"
+  },
+  {
+    "text": "The 2022 Uber breach began with an MFA fatigue attack where the attacker repeatedly sent MFA push notifications to an employee after obtaining their credentials. The employee eventually approved a notification to stop the bombardment. The attacker then used social engineering via WhatsApp, impersonating IT support and claiming the notifications were legitimate. This case demonstrated that even MFA can be defeated through social engineering and led to widespread adoption of number-matching MFA and phishing-resistant FIDO2 authentication to replace push-based MFA.",
+    "source": "Case Study / Uber MFA Fatigue Attack 2022",
+    "topic": "case_uber"
+  },
+  {
+    "text": "In 2023, MGM Resorts experienced a major breach that began with a vishing attack on the IT help desk. The attacker called MGM's help desk, impersonated an employee using information gathered from LinkedIn, and convinced the help desk agent to reset the employee's MFA. This provided access to the corporate network, ultimately leading to a ransomware attack that disrupted hotel operations across multiple properties for over a week. The estimated cost exceeded $100 million. The incident highlighted critical vulnerabilities in help desk verification procedures and the need for identity verification protocols for password and MFA resets.",
+    "source": "Case Study / MGM Resorts Vishing Attack 2023",
+    "topic": "case_mgm"
+  },
+  {
+    "text": "The Google and Facebook BEC scheme perpetrated by Evaldas Rimasauskas between 2013 and 2015 defrauded both companies of over $100 million. The attacker registered a company with the same name as a legitimate Asian hardware manufacturer and sent fake invoices to Google and Facebook employees. The invoices appeared genuine and were accompanied by fake contracts and letters from lawyers and banks. Payments were directed to bank accounts controlled by the attacker. Both companies eventually recovered most of the funds, and Rimasauskas was sentenced to five years in prison. This case demonstrates the scale of potential BEC losses even at the most sophisticated technology companies.",
+    "source": "Case Study / Google Facebook BEC Fraud",
+    "topic": "case_google_facebook"
+  }
+]
